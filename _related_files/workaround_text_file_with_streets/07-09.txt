@@ -1,0 +1,15 @@
+tannhaeuserstrasse; 
+haendelstrasse; 
+felix-mottl-strasse; 
+alberichstrasse; 
+tristanstrasse; 
+nibelungenplatz; 
+nibelungenstrasse; 
+isoldestrasse; 
+lohengrinstrasse; 
+kanonierstrasse; 
+kaercherstrasse; 
+seldeneckstrasse; 
+stoesserstrasse 1-15z; 
+stoesserstrasse 17-ende; 
+stoesserstrasse 0-ende; 

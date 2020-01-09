@@ -1,0 +1,150 @@
+// ==UserScript==
+// @name         GetSpeMu2019
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
+// @description  try to take over the world! AND find streets in Ka where I can find stepper motors
+// @author       Me
+// @match        https://web5.karlsruhe.de/service/abfall/akal/akal.php*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Your code here...
+    function deUmlaut(value){
+        value = value.toLowerCase();
+        value = value.replace(/ä/g, 'ae');
+        value = value.replace(/ö/g, 'oe');
+        value = value.replace(/ü/g, 'ue');
+        value = value.replace(/ß/g, 'ss');
+        /*
+        value = value.replace(/ /g, '-');
+        value = value.replace(/\./g, '');
+        value = value.replace(/,/g, '');
+        value = value.replace(/\(/g, '');
+        value = value.replace(/\)/g, '');
+        */
+        return value;
+    }
+    function ShowInfoThatScriptIsActive(){
+        document.body.style.background = "#E45E9D";
+        console.log("__mySperrmuellScriptIsActive___");
+
+        var newHTML= document.createElement ('div');
+        var maxSelectItems = document.getElementsByClassName("tab_body").strasse.length;
+        var cur = document.getElementsByClassName("tab_body").strasse.selectedIndex;
+        newHTML.innerHTML= '<div id="gmSomeID"> <p>BGP TamperMonkeyScript ACTIVE!['+cur+'/'+maxSelectItems+']</p><p style="color:#E45E9D">BgpBGP</p></div>';
+        document.body.appendChild(newHTML);
+    }
+    ShowInfoThatScriptIsActive();
+
+    function clickNextButton(){
+        //alert("You - please Simulate ButtonClick!");
+        console.log("Simulierter Button Click!!!");
+        document.a.anzeigen.click();
+    }
+    function SimulateClickOnStreetSelect(nextSelectSelected){
+        var maxSelectItems = 1111;
+        maxSelectItems = document.getElementsByClassName("tab_body").strasse.length; //2 = 0,1
+        if(nextSelectSelected<maxSelectItems){
+            var cur = document.getElementsByClassName("tab_body").strasse.selectedIndex;
+            console.log("Ich erhöhe den Index von "+cur+" auf "+nextSelectSelected+" und selektiere den nächsten Eintrag, da unterhalb der Maxeinträge ("+maxSelectItems+")");
+               document.getElementsByClassName("tab_body").strasse.options.selectedIndex = nextSelectSelected;
+               window.setTimeout (clickNextButton, 800);
+        }else{
+            alert("END OF STREETS for this page! nextSelectSelected "+nextSelectSelected+" is ABOVE maxSelection "+maxSelectItems+" and will NOT be executed!");
+        }
+    }
+function callSaveScript(message123){
+    var newHTML = document.createElement ('div');
+    newHTML.innerHTML= '<div id="gmSomeID2"> <p>MESSAGE '+message123+'</p> </div>';
+    document.body.appendChild(newHTML);
+    //<iframe src="https://www.w3schools.com"></iframe>
+    //var newHTML2 = document.createElement ('iframe');
+    //newHTML2.innerHTML= '<iframe src="http://www.boegi.com/sperr/'+message123+'"></iframe>';
+    //document.body.appendChild(newHTML2);
+    var newHTML3 = document.createElement ('fakeimg');
+    newHTML3.innerHTML= '<img width="120" height="12" src="http://www.boegi.com/__sperrmuell__/XXXSTART'+message123+'XXXEND"></img>';
+    document.body.appendChild(newHTML3);
+}
+function startMyScrappingScript(){
+    //alert("StartSCRAPPING!!!");
+    var returnCodeCheck1 = FindDateOnSelectedStreet();
+    if(returnCodeCheck1 >= 0){
+        var nextIndex = returnCodeCheck1+1;
+        console.log("Returncode vom auslesen war " + returnCodeCheck1+" NextIndex("+nextIndex+")");
+        SimulateClickOnStreetSelect(nextIndex);
+    }else{
+        if(returnCodeCheck1 == -42){
+            //SimulateClickOnStreetSelect(0);
+            //OLD - not working anymore - since SelectOption1 - not selectable anymore 2020 alert("Please manually select the first item in the selectbox to start the Loop " + returnCodeCheck1);
+            var answer = window.confirm("Start with Select Line0 dummy?")
+            if (answer) {
+                //some code
+                SimulateClickOnStreetSelect(0);
+            }else {
+                alert("Cancel - Script execution was stopped!"+answer);
+            }
+
+        }else{
+            if(returnCodeCheck1 ==-2){
+                //Some Streets have no Sperrmuell
+                var fakeindex = document.getElementsByClassName("tab_body").strasse.selectedIndex+1;
+                SimulateClickOnStreetSelect(fakeindex);
+            }else{
+                alert("ERROR End of Streets? " + returnCodeCheck1);
+            }
+        }
+    }
+}
+function FindDateOnSelectedStreet(){
+    var messageText = "";
+    //console.log("The Dropdown is available if 1");
+    //console.log(document.getElementsByClassName("tab_body").length);
+    var streetDropdownAvailable = document.getElementsByClassName("tab_body").length;
+    if(streetDropdownAvailable<=0){
+        messageText+="ERROR - Das StrassenDropdown wurde nicht gefunden!";
+        return -1;
+    }else{
+        var allStreets = document.getElementsByClassName("tab_body");
+        if(allStreets.strasse.selectedIndex==-1){
+            messageText+="Warning - Es wurde noch keine Strasse ausgewählt!";
+            return 0;
+        }else{
+            console.log("Index war "+allStreets.strasse.selectedIndex);
+            var strassenName = allStreets.strasse[allStreets.strasse.selectedIndex].text;
+            //DatumsElement mit dem Sperrmülltermin!
+            //var allbs = document.getElementsByTagName("b");
+            var allbs = document.getElementsByTagName("td");
+            var foundTermin = -1;
+            for (var i = 0; i < allbs.length; i++) {
+                //console.log("Found B with - "+allbs[i]);
+                var sperrmuelldate = allbs[i].innerText;
+                if(sperrmuelldate.includes("oder Telefon")){
+                    console.log("SperrmuellTermin fuer "+strassenName+" ist "+sperrmuelldate+";");
+                    messageText+=("SperrmuellTermin fuer ;YYY1"+strassenName+"YYY2; ist ;ZZZ1"+sperrmuelldate+"ZZZ2;");
+                    foundTermin = i;
+                }
+            }
+            if(foundTermin==-1){
+                if(allStreets.strasse.selectedIndex!=0){
+                    messageText+= "ERROR - Es wurde kein Termin gefunden";
+                    return -2;
+                }else{
+                    messageText+="Warning - Es wurde noch keine Strasse ausgewählt!";
+                    return -42;
+                }
+            }else{
+                messageText+= "Success;";
+                messageText=deUmlaut(messageText);
+                console.log(messageText);
+                callSaveScript(messageText);
+                return allStreets.strasse.selectedIndex;
+            }
+        }
+    }
+}
+document.onload(startMyScrappingScript());
+})();

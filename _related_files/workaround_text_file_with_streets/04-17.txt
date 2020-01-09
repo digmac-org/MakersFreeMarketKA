@@ -1,0 +1,13 @@
+dorotheastrasse; 
+nebeniusstrasse 1-23z; 
+nebeniusstrasse 25-ende; 
+nebeniusstrasse 0-ende; 
+treitschkestrasse; 
+dorotheastrasse; 
+lauterbergstrasse; 
+elisabeth-grosswendt-strasse; 
+philipp-reis-strasse; 
+hermannstrasse; 
+wielandtstrasse; 
+morgenstrasse; 
+rotteckstrasse; 

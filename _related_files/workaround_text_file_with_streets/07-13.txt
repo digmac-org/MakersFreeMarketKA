@@ -1,0 +1,9 @@
+bachstrasse 1-25z; 
+bachstrasse 0-26z; 
+bachstrasse 27-ende; 
+bachstrasse 28-ende; 
+philippstrasse; 
+gluckstrasse; 
+schumannstrasse; 
+kalliwodastrasse; 
+brahmsstrasse; 

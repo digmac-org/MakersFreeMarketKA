@@ -1,0 +1,10 @@
+madenburgweg; 
+hagenbacher strasse; 
+jockgrimerstrasse; 
+august-bebel-strasse 1-ende; 
+august-bebel-strasse 0-44z; 
+august-bebel-strasse 46-ende; 
+bellheimer strasse; 
+bergzaberner strasse; 
+ruelzheimer strasse; 
+kussmaulstrasse; 

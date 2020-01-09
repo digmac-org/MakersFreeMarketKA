@@ -1,0 +1,7 @@
+volzstrasse; 
+goerresstrasse; 
+wichernstrasse 1-11z; 
+wichernstrasse 13-ende; 
+wichernstrasse 0-2z; 
+wichernstrasse 4-ende; 
+staudingerstrasse; 
