@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SuMaSo - SustainableMakerSources</title>
+	<!--
+	GIT					: https://github.com/digmac-org/MakersFreeMarketKA
+	Changelog 	: Changelog.txt
+	Open Issues : NextSteps.txt
+	Contributors:	Contributors.txt
+	Credits			: Credits.txt
+	-->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- DEV
+	-->
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#00bb31">
+	<meta name="msapplication-TileColor" content="#00bb31">
+	<meta name="theme-color" content="#00bb31">
+	<!-- PROD
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00bb31">
+	<meta name="msapplication-TileColor" content="#00bb31">
+	<meta name="theme-color" content="#00bb31">
+	-->
+
+	<script src="http://cdn.leafletjs.com/leaflet/v1.6.0/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.6.0/leaflet.css" />
+
+	<style>
+		html, body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			background-color: #C0C0C0;
+		}
+		#toparea {
+			width: 100%;
+			height: 5%;
+		}
+		#map {
+			width: 100%;
+			height: 95%;
+		}
+		img.leaflet-control {
+  		opacity: 0.3;
+  		filter: alpha(opacity=30); /* For IE8 and earlier */
+		}
+
+		img.leaflet-control:hover {
+  		opacity: 1.0;
+  		filter: alpha(opacity=100); /* For IE8 and earlier */
+		}
+	</style>
+
+</head>
+<body>
+	<div id='toparea'>
+		<p>Termine MM-DD alle in 2020:
+			<select name="dates" id="dateselect">
+				<option value="wrongselection" selected>Please Select...</option>
+				<option value='01-07'>07.01.2020</option>
+				<option value='01-09'>09.01.2020</option>
+				<option value='01-13'>13.01.2020</option>
+				<option value='01-15'>15.01.2020</option>
+				<option value='01-17'>17.01.2020</option>
+				<option value='01-21'>21.01.2020</option>
+				<option value='01-23'>23.01.2020</option>
+				<option value='01-27'>27.01.2020</option>
+				<option value='01-29'>29.01.2020</option>
+				<option value='01-31'>31.01.2020</option>
+				<option value='02-04'>04.02.2020</option>
+				<option value='02-06'>06.02.2020</option>
+				<option value='02-10'>10.02.2020</option>
+				<option value='02-12'>12.02.2020</option>
+				<option value='02-14'>14.02.2020</option>
+				<option value='02-18'>18.02.2020</option>
+				<option value='02-20'>20.02.2020</option>
+				<option value='02-26'>26.02.2020</option>
+				<option value='02-28'>28.02.2020</option>
+				<option value='03-03'>03.03.2020</option>
+				<option value='03-05'>05.03.2020</option>
+				<option value='03-09'>09.03.2020</option>
+				<option value='03-11'>11.03.2020</option>
+				<option value='03-13'>13.03.2020</option>
+				<option value='03-17'>17.03.2020</option>
+				<option value='03-19'>19.03.2020</option>
+				<option value='03-23'>23.03.2020</option>
+				<option value='03-25'>25.03.2020</option>
+				<option value='03-27'>27.03.2020</option>
+				<option value='03-31'>31.03.2020</option>
+				<option value='04-02'>02.04.2020</option>
+				<option value='04-06'>06.04.2020</option>
+				<option value='04-08'>08.04.2020</option>
+				<option value='04-15'>15.04.2020</option>
+				<option value='04-17'>17.04.2020</option>
+				<option value='04-21'>21.04.2020</option>
+				<option value='04-23'>23.04.2020</option>
+				<option value='04-27'>27.04.2020</option>
+				<option value='04-29'>29.04.2020</option>
+				<option value='05-04'>04.05.2020</option>
+				<option value='05-06'>06.05.2020</option>
+				<option value='05-08'>08.05.2020</option>
+				<option value='05-12'>12.05.2020</option>
+				<option value='05-14'>14.05.2020</option>
+				<option value='05-19'>19.05.2020</option>
+				<option value='05-25'>25.05.2020</option>
+				<option value='05-27'>27.05.2020</option>
+				<option value='05-29'>29.05.2020</option>
+				<option value='06-02'>02.06.2020</option>
+				<option value='06-03'>03.06.2020</option>
+				<option value='06-04'>04.06.2020</option>
+				<option value='06-05'>05.06.2020</option>
+				<option value='06-08'>08.06.2020</option>
+				<option value='06-09'>09.06.2020</option>
+				<option value='06-15'>15.06.2020</option>
+				<option value='06-17'>17.06.2020</option>
+				<option value='06-19'>19.06.2020</option>
+				<option value='06-23'>23.06.2020</option>
+				<option value='06-25'>25.06.2020</option>
+				<option value='06-29'>29.06.2020</option>
+				<option value='07-01'>01.07.2020</option>
+				<option value='07-03'>03.07.2020</option>
+				<option value='07-07'>07.07.2020</option>
+				<option value='07-09'>09.07.2020</option>
+				<option value='07-13'>13.07.2020</option>
+				<option value='07-15'>15.07.2020</option>
+				<option value='07-17'>17.07.2020</option>
+				<option value='07-21'>21.07.2020</option>
+				<option value='07-23'>23.07.2020</option>
+				<option value='07-27'>27.07.2020</option>
+				<option value='07-29'>29.07.2020</option>
+				<option value='07-31'>31.07.2020</option>
+				<option value='08-04'>04.08.2020</option>
+				<option value='08-06'>06.08.2020</option>
+				<option value='08-10'>10.08.2020</option>
+				<option value='08-12'>12.08.2020</option>
+				<option value='08-14'>14.08.2020</option>
+				<option value='08-18'>18.08.2020</option>
+				<option value='08-20'>20.08.2020</option>
+				<option value='08-24'>24.08.2020</option>
+				<option value='08-26'>26.08.2020</option>
+				<option value='08-28'>28.08.2020</option>
+				<option value='09-01'>01.09.2020</option>
+				<option value='09-03'>03.09.2020</option>
+				<option value='09-07'>07.09.2020</option>
+				<option value='09-09'>09.09.2020</option>
+				<option value='09-11'>11.09.2020</option>
+				<option value='09-15'>15.09.2020</option>
+				<option value='09-17'>17.09.2020</option>
+				<option value='09-21'>21.09.2020</option>
+				<option value='09-23'>23.09.2020</option>
+				<option value='09-28'>28.09.2020</option>
+				<option value='09-30'>30.09.2020</option>
+				<option value='10-02'>02.10.2020</option>
+				<option value='10-06'>06.10.2020</option>
+				<option value='10-12'>12.10.2020</option>
+				<option value='10-14'>14.10.2020</option>
+				<option value='10-16'>16.10.2020</option>
+				<option value='10-20'>20.10.2020</option>
+				<option value='10-22'>22.10.2020</option>
+				<option value='10-26'>26.10.2020</option>
+				<option value='10-28'>28.10.2020</option>
+				<option value='10-30'>30.10.2020</option>
+				<option value='11-03'>03.11.2020</option>
+				<option value='11-05'>05.11.2020</option>
+				<option value='11-09'>09.11.2020</option>
+				<option value='11-11'>11.11.2020</option>
+				<option value='11-13'>13.11.2020</option>
+				<option value='11-17'>17.11.2020</option>
+				<option value='11-19'>19.11.2020</option>
+				<option value='11-23'>23.11.2020</option>
+				<option value='11-25'>25.11.2020</option>
+				<option value='11-27'>27.11.2020</option>
+				<option value='12-01'>01.12.2020</option>
+				<option value='12-03'>03.12.2020</option>
+				<option value='12-07'>07.12.2020</option>
+				<option value='12-09'>09.12.2020</option>
+				<option value='12-11'>11.12.2020</option>
+			</select>
+			<br>
+			<span id="fakeshowdates"></span>
+		</p>
+	</div>
+
+	<div id='map'></div>
+
+	<script>
+
+
+	//_____________________FORM_RELATED___________________________________________
+	//Event listener - change of the select (dropdown)
+	let sel = document.getElementById('dateselect');
+	sel.addEventListener ("change", function () {
+   	let showselecteddatespan = document.getElementById('showselecteddate');
+		let fakeshowdates = document.getElementById('fakeshowdates');
+		//TODO - this is a dirty workaround - replace with street highlighting on the map!
+		fakeshowdates.innerHTML = "TODO: Straßen hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
+   	showselecteddatespan.innerHTML = " [Termine für 2020-"+this.value+"]";
+	});
+
+	//wertstoffhoflayergroup
+		var recyclingIcon = L.icon({
+			iconUrl: 'img/recycling_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+
+		//Manually created - next step - check and mayce automate the points - Reformat the data?!
+		var wertstoffstationen = {
+		    "type": "FeatureCollection",
+		    "features": [
+		        {
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Durlach, Maybachstr. 10 b",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Maybachstr. 10 b",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag geschlos­sen<br>"+
+																	"Dienstag bis Freitag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 08:30 bis 17:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.44408,48.99802]
+							},
+		            "id": 1
+		        },
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Durlach, Alte Weingartener Straße 63",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Alte Weingar­te­ner Str. 63",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Mittwoch und Freitag geschlos­sen<br>"+
+																	"Dienstag, Donnerstag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 10:00 bis 16:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.4847559,49.0116673]
+							},
+								"id": 2
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Daxlanden, Fettweisstraße",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Fettweisstraße 12",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Mittwoch und Freitag geschlos­sen<br>"+
+																	"Dienstag, Donnerstag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 10:00 bis 16:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.3252098,49.0082644]
+							},
+								"id": 3
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Grünwettersbach, Wiesenstraße 34",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Wiesenstr. 34",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Dienstag und Donnerstag geschlos­sen<br>"+
+																	"Mittwoch, Freitag 14:30 bis 18:30 Uhr<br>"+
+																	"Samstag 10:00 bis 16:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.4713046,48.9511257]
+							},
+								"id": 4
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Hagsfeld, Schäferstraße",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Schäferstraße 26",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Dienstag und Donnerstag geschlos­sen<br>"+
+																	"Mittwoch, Freitag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 10:00 bis 16:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.4596457,49.027282]
+							},
+								"id": 5
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Neureut, Am Junkertschritt (beim Bauhof)",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Am Junkert­schritt",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Dienstag und Donnerstag geschlos­sen<br>"+
+																	"Mittwoch, Samstag 10:00 bis 15:30 Uhr<br>"+
+																	"Freitag 13:30 bis 15:30 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.3712987,49.054668]
+							},
+								"id": 6
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Neureut, Waldsportplatz",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Waldsportplatz",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Dienstag und Donnerstag geschlos­sen<br>"+
+																	"Mittwoch, Samstag 10:00 bis 15:30 Uhr<br>"+
+																	"Freitag 13:30 bis 15:30 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.3992358,49.0463962]
+							},
+								"id": 7
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Oberreut, Großoberfeld",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Großo­ber­feld 3",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag, Dienstag und Donnerstag geschlos­sen<br>"+
+																	"Mittwoch, Freitag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 10:00 bis 16:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.3713901,48.9836361]
+							},
+								"id": 8
+						},
+						{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Wertstoffstation - Nordbe­cken­straße",
+									"additionalinfo":"Bitte unbedingt die original Website besuchen - hier nur Orientierungswerte!",
+									"link":"https://www.karlsruhe.de/b4/buergerdienste/abfall/einrichtungen/wertstoffstationen.de",
+									"adr":"Nordbe­cken­straße 1",
+									"openinghours": "<strong>OpeningHours:</strong><br>"+
+																	"Montag geschlos­sen<br>"+
+																	"Dienstag bis Freitag 09:00 bis 17:00 Uhr<br>"+
+																	"Samstag 08:30 bis 17:00 Uhr<br>"+
+																	"<strong>* Bitte ÖZ mit offizieller Website vergleichen!</strong><br>",
+									"underConstruction": false
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.3386551,49.0183836]
+							},
+								"id": 9
+						}
+					]
+			};
+
+			var wertstoffhoflayergroup = L.layerGroup();
+			L.geoJSON(wertstoffstationen, {
+				filter: function (feature, layer) {
+					if (feature.properties) {
+						//If the property "underConstruction" exists and is true, return false (don't render features under construction)
+						return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
+					}
+					return false;
+				},
+				pointToLayer: function (feature, latlng) {
+					return L.marker(latlng, {icon: recyclingIcon});
+				},
+				onEachFeature: onEachFeature
+			}).addTo(wertstoffhoflayergroup);
+
+	/*----------------------------------------------------------------------------HACKERSPACES --- START*/
+	var hackerspaceIcon = L.icon({
+		iconUrl: 'img/hackerspace_37x37.png',
+		iconSize: [37, 37],
+		iconAnchor: [18, 37],
+		popupAnchor: [0, -28]
+	});
+
+	//Manually created - Maybe recheck in the next step...
+	var hackerspaces = {
+	    "type": "FeatureCollection",
+	    "features": [
+	        {
+						"type": "Feature",
+						"properties": {
+								"popupContent": "Entropia e.V. (Hackerspace)",
+								"additionalinfo":"Ort für Hacker, Haeck­sen und Neu­gie­rige",
+								"link":"https://entropia.de/Hauptseite",
+								"underConstruction": false
+						},
+						"geometry": {
+								"type": "Point",
+								"coordinates": [8.40717,49.0065]
+						},
+	            "id": 1
+	        },
+					{
+						"type": "Feature",
+						"properties": {
+								"popupContent": "FabLab Karlsruhe e.V. und Werkstatt",
+								"openinghours": "<strong>OpeningHours:</strong>OpenLabDay (Jeden dritten Donnerstag im Monat) Details siehe Website.",
+								"link":"https://fablab-karlsruhe.de/",
+
+								"underConstruction": false
+						},
+						"geometry": {
+								"type": "Point",
+								"coordinates": [8.429636,49.00570]
+						},
+	            "id": 2
+	        },
+					{
+						"type": "Feature",
+						"properties": {
+								"popupContent": "Holzwerkstatt",
+								"openinghours": "<strong>OpeningHours:</strong> (see website)",
+								"additionalinfo":"Die Holzwerkstatt der Waldpädagogik Karlsruhe bietet öffentliche Termine zur Werkstattnutzung. Details siehe Homepage.",
+								"link":"http://www.waldpaedagogik-karlsruhe.de/home/holzwerkstatt/",
+								"underConstruction": false
+						},
+						"geometry": {
+								"type": "Point",
+								"coordinates": [8.407111,49.030616]
+						},
+	            "id": 3
+	        },
+					{
+						"type": "Feature",
+						"properties": {
+								"popupContent": "RaumZeitLabor im Pfadfinderzentrum Raumünzach",
+								"additionalinfo":"Außenstelle Entropia - 4 Tage im Sommer - Pfadfinderzentrum Raumünzach",
+								"openinghours": "<strong>4 Tages Event:</strong> 19. - 23. August 2020 Details (see website)",
+								"link":"https://entropia.de/ZeitRaumLabor",
+								"underConstruction": false
+						},
+						"geometry": {
+								"type": "Point",
+								"coordinates": [8.349867,48.639024]
+						},
+							"id": 4
+					},
+				]
+		};
+
+		var hackerspacelayergroup = L.layerGroup();
+		L.geoJSON(hackerspaces, {
+			filter: function (feature, layer) {
+				if (feature.properties) {
+					//If the property "underConstruction" exists and is true, return false (don't render features under construction)
+					return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
+				}
+				return false;
+			},
+			pointToLayer: function (feature, latlng) {
+				return L.marker(latlng, {icon: hackerspaceIcon});
+			},
+			onEachFeature: onEachFeature
+		}).addTo(hackerspacelayergroup);
+
+	//_____________________MAP_RELATED____________________________________________
+	//var map = L.map('map').setView([49.00388,8.40932], 14);
+	//CC Infos...
+
+
+	var littleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+	    denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+	    aurora    = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+	    golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+	var cities = L.layerGroup([littleton, denver, aurora, golden]);
+
+	var grayscale = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'+
+			'<span id="showselecteddate"></span>',
+			id: 'mapbox/light-v9'
+	}),
+	    streets   = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'+
+				'<span id="showselecteddate"></span>',
+				id: 'mapbox/light-v9'
+	});
+
+	var map = L.map('map', {
+	    center: [49.00388,8.40932],
+	    zoom: 14,
+	    layers: [grayscale, cities, hackerspacelayergroup,wertstoffhoflayergroup]
+	});
+
+	var baseMaps = {
+    "Grayscale": grayscale,
+    "Streets": streets
+	};
+
+	var overlayMaps = {
+    "Cities": cities,
+		"Hackerspaces": hackerspacelayergroup,
+		"Wertstoffhöfe":wertstoffhoflayergroup
+	};
+
+	var baseMaps = {
+	    "<span style='color: gray'>Grayscale</span>": grayscale,
+	    "Streets": streets
+	};
+
+
+	L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+	L.Control.Watermark = L.Control.extend({
+		onAdd: function(map) {
+			var img = L.DomUtil.create('img');
+			img.src = 'img/sumaso_200x60_36c3style_semitransparent.png';
+			img.style.width = '200px';
+			//L.DomEvent.on()
+			return img;
+		},
+		onRemove: function(map) {
+			//L.DomEvent.off()
+		}
+	});
+
+	L.control.watermark = function(opts) {
+		return new L.Control.Watermark(opts);
+	}
+
+	L.control.watermark({ position: 'bottomright' }).addTo(map);
+
+
+	//Function called for each feature - Define the Popup Content etc...
+	function onEachFeature(feature, layer) {
+		var popupContent = "";
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += "<strong>"+feature.properties.popupContent+"</strong><br>";
+		}
+		if (feature.properties && feature.properties.additionalinfo) {
+			popupContent += "Info: "+feature.properties.additionalinfo+"<br>";
+		}
+		if (feature.properties && feature.properties.link) {  //TODO - long links - crash the popup!
+			popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link+"</a><br>";
+		}
+		if (feature.properties && feature.properties.openinghours) {
+			popupContent += feature.properties.openinghours;
+		}
+		if(popupContent == ""){
+			popupContent = "This is a feature without info - please add more details...<br>";
+		}
+
+		//Suround the final string with ... <p>
+		popupContent = "<p>"+popupContent+"</p>";
+
+		layer.bindPopup(popupContent);
+	}
+
+
+//Icons:  SVG Source File is in the CreateAssets folder... Icon is drawn in Inkscape - IconImages are C&P from MS Word or...
+//https://game-icons.net/1x1/delapouite/toolbox.html  (all are svg imports and manipulated)
+
+
+
+/*
+		var shopIcon = L.icon({
+			iconUrl: 'img/shop_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+		var flohmarktIcon = L.icon({
+			iconUrl: 'img/flohmarkt_grau_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+		var secondhandIcon = L.icon({
+			iconUrl: 'img/secondhand_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+*/
+
+</script>
+</body>
+</html>

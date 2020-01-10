@@ -1,0 +1,62 @@
+Credits:
+========
+
+==============
+Tech & Tools:
+==============
+
+(Map related)
+  Map Tiles and more...
+  OpenStreetMap (OSM)
+  https://www.openstreetmap.org/
+  CC-BY-SA https://creativecommons.org/licenses/by-sa/2.0/
+
+  Map display and more...
+    Leaflet
+    https://leafletjs.com/
+
+  Map Imagery
+    Mapbox
+    https://www.mapbox.com/
+    https://creativecommons.org/licenses/by-sa/2.0/
+
+  MapData / GeoData related:
+    OverPass
+    GeoJson
+
+  Map Plugins - Sidebar:
+    https://github.com/Turbo87/sidebar-v2
+
+
+(All the rest / other tools)
+  Node.js
+  TamperMonkey
+  Inkscape
+  Atom
+
+========================================
+Images Icons Drawings Mapmarkers Logos:
+========================================
+
+Icon(s) created with:
+  game-icons.net
+  https://game-icons.net/
+  + Inkscape
+
+Logo created with:
+  bleeptrack.de
+  https://36c3.bleeptrack.de/
+Logo as Watermark:
+  https://leafletjs.com/examples/extending/extending-3-controls.html
+
+Favicon created with:
+  https://game-icons.net/
+  green = #00bb31
+  https://game-icons.net/1x1/lorc/mighty-spanner.html
+  by Lorc http://lorcblog.blogspot.com/ CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+  realfavicongenerator.net
+  https://realfavicongenerator.net/
+  https://realfavicongenerator.net/favicon_result?file_id=p1du7jajbn61f1cg516bf1vn8bhp6
+
+  + Inkscape

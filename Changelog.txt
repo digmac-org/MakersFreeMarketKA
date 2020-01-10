@@ -1,0 +1,14 @@
+ChangeHistory:
+==============
+012 - Test - Sidebar from https://github.com/Turbo87/sidebar-v2/blob/master/examples/gmaps.html
+      Clean code...
+011 - Test - CSS and Sidebar from Farmshops.eu
+010 - Cleanup - release to GIT candidate...
+      New internal directory
+      New nice icons for the existing points
+      Clean stuff
+005 - Test with external JSON JS files... Containing Dummy Data manually created with
+004 - Dropdown form test...  (Changed in V005 to static dummy files for first Push 2 Git)
+003 - NOShops + NoRecycling Features + CLEAN - Only Hackerspaces!!! (https://geoportal.karlsruhe.de/buergergis/?query=Stadtplan_POIs_Recyclinganlagen_7988_6%2C1=1)
+002 - Hackerspaces as 1..2 Features... Filter possible - but not implemented
+001 - erste Version - Clean OlD

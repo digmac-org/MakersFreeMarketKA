@@ -1,0 +1,44 @@
+Contributors:
+=============
+DigMac, Codetoffel, GrandmastaP
+
+
+
+
+
+Credits:
+========
+Maps:
+OSM
+MapData:
+OverPass
+GeoJson:
+Node
+
+Sidebar:
+https://github.com/Turbo87/sidebar-v2
+
+
+
+========================================
+Images Icons Drawings Mapmarkers Logos:
+========================================
+
+Icon(s) created with:
+  game-icons.net
+  https://game-icons.net/
+
+
+Logo created with:
+  bleeptrack.de
+  https://36c3.bleeptrack.de/
+
+Favicon created with:
+  https://game-icons.net/
+  green = #00bb31
+  https://game-icons.net/1x1/lorc/mighty-spanner.html
+  by Lorc http://lorcblog.blogspot.com/ CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+  realfavicongenerator.net
+  https://realfavicongenerator.net/
+  https://realfavicongenerator.net/favicon_result?file_id=p1du7jajbn61f1cg516bf1vn8bhp6

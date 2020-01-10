@@ -1,0 +1,9 @@
+Next Steps - TODO:
+==================
+[] The node script from farmmarkets.eu is not working on my machine. Ask M to help. (I guess it's also a lack of Node Know How on my side ;-)
+[] With the script mentioned above - the streets of KA have to be transfered to the currently used dummy files... GeoJson and per date = 1..N Streets looks fine for me (in the moment)
+[] Depending on the last step - the streets have to be highlighted on forms "date change"
+[] Clean the output for the Hackerspaces
+[] Add Shops and other "maker relevant" things
+[] Add a side menu like shown in farmmarkets.eu with the form and info...
+[] communicate - show the project with lokal communitys
