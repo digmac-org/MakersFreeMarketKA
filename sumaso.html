@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SuMaSo - SustainableMakerSources</title>
+	<title>SuMaSo - Sustainable Maker Sources</title>
 	<!--
 	GIT					: https://github.com/digmac-org/MakersFreeMarketKA
 	Changelog 	: Changelog.txt
@@ -41,6 +41,7 @@
 	<script src="http://cdn.leafletjs.com/leaflet/v1.6.0/leaflet.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.6.0/leaflet.css" />
 
+
 	<style>
 		html, body {
 			height: 100%;
@@ -73,6 +74,9 @@
   		opacity: 1.0;
   		filter: alpha(opacity=100); /* For IE8 and earlier */
 		}
+		img.icondescription{
+			float: left;
+		}
 	</style>
 
 </head>
@@ -86,13 +90,19 @@
 			<div class="sidebar-tabs">
 					<ul role="tablist">
 							<li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-							<li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-							<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-							<li><a href="https://github.com/Turbo87/sidebar-v2" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
-					</ul>
+							<li><a href="#karlsruhe" role="tab"><i class="fa fa-exclamation-triangle"></i></a></li>
 
+							<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+							<li><a href="#contributors" role="tab"><i class="fa fa-user"></i></a></li>
+							<li><a href="#profile" role="tab"><i class="fa fa-hand-o-up"></i></a></li>
+							<li><a href="#suno" role="tab"><i class="fa fa-sun-o"></i></a></li>
+
+							<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+
+					</ul>
 					<ul role="tablist">
 							<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+							<li><a href="https://github.com/digmac-org/MakersFreeMarketKA" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
 					</ul>
 			</div>
 
@@ -103,19 +113,79 @@
 									SuMaSo:
 									<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
 							</h1>
-							Was ist das hier?
+							<h3>SuMaSo was ?</h3>
 							<p class="details">
-							SuMaSo startete als Übersichtsseite für (kostenlose) Dinge, die für Maker relevant sind. Im Laufe des Projektes wurden weitere Quellen erschlossen und Zusatzfunktionen realisiert... Sustainable Maker Sources!
+							SuMaSo steht für <strong>Su</strong>stainable <strong>Ma</strong>ker <strong>So</strong>urces und somit (frei übersetzt) für nachhaltige Bezugsquellen für Bastelbegeisterte.<br>
+							</p>
+							<h3>Still confused ?!?</h3>
+							<p class="details">
+							Das Projekt wurde Anfang 2020 aufgesetzt und sollte erstmals alle kostenlosen Bezugsquellen z.B. für Bastelholz - aus der Region Karlsruhe - auf einer Karte sichtbar machen. Im Laufe der Realisierung wurden dann weitere interessante Dinge implementiert (Maker Werkstätten, Hacker Spaces ...) Viele dieser Dinge sind auch für andere Regionen ersichtlich - wenn auch nicht so gut und manuell geprüft, wie die Einträge rund um Karlsruhe.
 							</p>
 
-							Besonderheiten / Details für Karlsruhe:<br>
-
-							<h3>Sperrmüll</h3>
+							<h3>Finden !</h3>
 							<p class="details">
-								Hier das Formular einblenden!<br>
-								Termine dd.mm.jjjj alle in 2020:
+							Um Quellen zu finden bzw. die Orte der Quellen anzuzeigen - gibt es mehrere Möglichkeiten. Übersichtsseite (wie suchen) Detail-Infos auf der Karte anzegein lassen, Informationen filtern, Spezielle Termine farblich anzeigen.
+							</p>
+
+							<h3>Besonderheiten / Details für Karlsruhe:</h3>
+							<p class="details">
+							Durch den initialen Fokus auf Karlsruhe gibt es für die Stadt erweiterte Funktionen. Diese sind:
+							Icons:
+							</p>
+
+							<h3>Aber da fehlt ja...</h3>
+							<p class="details">
+							Dir fehlen Informationen auf der Karte? - Bitte nim Kontakt zu uns auf bzw. trage die fehlende Information direkt selbst ein.
+						</p>
+							<h3>Mitmachen:</h3>
+							<p class="details">
+							Dies ist ein Open Source / Open Knowledge Projekt - im Geiste dieses Gedankens kannst du theoretisch einen kompletten Klon dieser Seite erstellen - oder... (und das wäre zielführender...) Du kannst in unserem Team die Weiterentwicklung der Funktionalitäten voran treiben und teil etwas größeren sein...
+						</p>
+							...startete als Übersichtsseite für (kostenlose) Dinge, die für Maker relevant sind. Im Laufe des Projektes wurden weitere Quellen erschlossen und Zusatzfunktionen realisiert... Sustainable Maker Sources!
+
+							<br>
+							<p class="details">
+
+							</p>
+							<p>
+								A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.
+							</p>
+
+					</div>
+
+					<div class="sidebar-pane" id="karlsruhe">
+							<h1 class="sidebar-header">Karlsruhe:<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+							<h3>Karlsruhe:</h3>
+							<p class="details">
+							Die Karte wurde initial und mit Fokus auf die Stadt Karlsruhe entwickelt. Die hier aufgeführten Funktionen sind Karlsruhe spezifisch und führen nur in dieser Region zu Ergebnissen.<br>
+							<strong>Bitte beachten!</strong> Diese Karten sind eine Sammlung von externen Daten. Die Daten und Termine wurden maschinell gesammelt und ohne größere Prüfungen hier eingefügt. Bitte kontrolliere die Angaben auf der jeweilige Datenquelle manuell, bevor du zu einem Termin aufbrichst.
+							</p>
+							<h4>[KA] - HackerSpaces - nach Ort:</h4>
+							<p class="details">
+								<img class='icondescription' src='img/hackerspace_37x37.png'>
+								Hackerspaces und offene Werkstatten in Karlsruhe:<br>
+								<input type="checkbox" name="checkbox" id="kahackerspaces">
+								Zeige die Orte. Die nächsten Termin einer Veranstaltung findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
+							</p>
+							<h4>[KA] - Flohmärkte - nach Ort:</h4>
+							<p class="details">
+								<img class='icondescription' src='img/flohmarkt_grau_37x37.png'>
+								Flohmärkte (Orte) in der Karlsruher Region:<br>
+								<input type="checkbox" name="checkbox" id="kaflohmarktorte">
+								Zeige die Orte an denen Flohmärkte stattfinden. Den nächsten Termin einer Veranstaltung findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
+							</p>
+							<h4>[KA] - Flohmärkte - nach Datum:</h4>
+							<p class="details">
+								<img class='icondescription' src='img/flohmarkt_37x37.png'>
+								<input type="checkbox" name="checkbox" id="kaflohmarkttermine">
+								Daten (Termine) an denen Flohmärkte stattfinden. Selektiere ein Datum zu dem ein Flohmarkttermin hinterlegt ist - dann wird dir der entsprechende Ort in der Karte angezeigt. Weitere Details findest du in den Popup Texten.
+							</p>
+							<h4>[KA] - Sperrmüll - nach Datum:</h4>
+							<p class="details">
+								Wähle ein Datum, um die Straßen mit Sperrmüllabholung anzuzeigen.<br>
+								Termine sind alle von 2020 / im Format dd.mm.jjjj<br>
 									<select name="dates" id="dateselect">
-										<option value="wrongselection" selected>Please Select...</option>
+										<option value="wrongselection" selected>Bitte auswählen...</option>
 										<option value='01-07'>07.01.2020</option>
 										<option value='01-09'>09.01.2020</option>
 										<option value='01-13'>13.01.2020</option>
@@ -237,23 +307,24 @@
 									</select>
 									<br>
 									<span id="fakeshowdates"></span>
-							</p>
 
-							<p>
-								A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.
-							</p>
-
-							<p class="details">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-							<p class="details">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-							<p class="details">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-							<p class="details">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+									<h4>[KA] - Wertstoffhöfe - nach Ort:</h4>
+									<p class="details">
+										<img class='icondescription' src='img/recycling_37x37.png'>
+										Wertstoffstationen / Wertstoffhöfe in und um Karlsruhe:<br>
+										<input type="checkbox" name="checkbox" id="kahackerspaces">
+										Zeige die Orte. Die Öffnungszeiten findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
+									</p>
 					</div>
 
-					<div class="sidebar-pane" id="profile">
-							<h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+					<div class="sidebar-pane" id="contributors">
+							<h1 class="sidebar-header">Contributors:<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+							<h3>Contributors:</h3>
+							<p class="details">
+							Folgende Personen haben an diesem Projekt mitgewirkt:<br>
+							DigMac, Codetoffel, GrandmastaP
+							</p>
 					</div>
 
 					<div class="sidebar-pane" id="messages">
@@ -268,9 +339,8 @@
 
 
 	<div id='map' class="sidebar-map"></div>
-	<a href="https://github.com/Turbo87/sidebar-v2/">
-		<img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-    <script src="js/leaflet-sidebar.js"></script>
+
+  <script src="js/leaflet-sidebar.js"></script>
 	<script>
 
 
@@ -628,8 +698,8 @@
 
 	var overlayMaps = {
     "Cities": cities,
-		"Hackerspaces": hackerspacelayergroup,
-		"Wertstoffhöfe":wertstoffhoflayergroup
+		"KA - Hackerspaces": hackerspacelayergroup,
+		"KA - Wertstoffhöfe":wertstoffhoflayergroup
 	};
 
 	var baseMaps = {
