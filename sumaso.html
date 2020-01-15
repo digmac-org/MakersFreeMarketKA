@@ -74,6 +74,7 @@
   		opacity: 1.0;
   		filter: alpha(opacity=100); /* For IE8 and earlier */
 		}
+		/*Icon Legende - Sidebar Details*/
 		img.icondescription{
 			float: left;
 		}
@@ -82,109 +83,126 @@
 </head>
 <body>
 
-
-
-
-	<div id="sidebar" class="sidebar collapsed">
+<!--                                                                            SIDEBAR DEF - START.......................................................... -->
+<div id="sidebar" class="sidebar collapsed">
 			<!-- Nav tabs -->
 			<div class="sidebar-tabs">
 					<ul role="tablist">
 							<li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+							<li class="disabled"><a href="#info" role="tab"><i class="fa fa-info-circle"></i></a></li>
+							<li class="disabled"><a href="#legend" role="tab"><i class="fa fa-picture-o"></i></a></li>
+							<!--
+							---NOPE---<li class="disabled"><a href="#legend" role="tab"><i class="fa fa-map"></i></a></li>
+												<li class="disabled"><a href="#legend" role="tab"><i class="fa fa-hand-spock-o "></i></a></li>
+												<li class="disabled"><a href="#support" role="tab"><i class="fa fa-sticky-note"></i></a></li>
+											-->
+							<li class="disabled"><a href="#support" role="tab"><i class="fa fa-life-ring"></i></a></li>
+							<li class="disabled"><a href="#support" role="tab"><i class="fa fa-users"></i></a></li>
+							<li class="disabled"><a href="#support" role="tab"><i class="fa fa-map-marker"></i></a></li>
+
+
+							<li><a href="#karlsruhe" role="tab"><i class="fa fa-eye"></i></a></li>
 							<li><a href="#karlsruhe" role="tab"><i class="fa fa-exclamation-triangle"></i></a></li>
+							<li><a href="#karlsruhe" role="tab"><i class="fa fa-search-plus"></i></a></li>
 
-							<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+
+							<li class="disabled"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
 							<li><a href="#contributors" role="tab"><i class="fa fa-user"></i></a></li>
-							<li><a href="#profile" role="tab"><i class="fa fa-hand-o-up"></i></a></li>
-							<li><a href="#suno" role="tab"><i class="fa fa-sun-o"></i></a></li>
-
+							<li class="disabled"><a href="#profile" role="tab"><i class="fa fa-hand-o-up"></i></a></li>
+							<li class="disabled"><a href="#suno" role="tab"><i class="fa fa-sun-o"></i></a></li>
 							<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
 
 					</ul>
 					<ul role="tablist">
-							<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+							<li class="disabled"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
 							<li><a href="https://github.com/digmac-org/MakersFreeMarketKA" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
 					</ul>
 			</div>
 
 			<!-- Tab panes -->
 			<div class="sidebar-content">
+
+
 					<div class="sidebar-pane" id="home">
 							<h1 class="sidebar-header">
 									SuMaSo:
 									<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
 							</h1>
+
 							<h3>SuMaSo was ?</h3>
 							<p class="details">
-							SuMaSo steht für <strong>Su</strong>stainable <strong>Ma</strong>ker <strong>So</strong>urces und somit (frei übersetzt) für nachhaltige Bezugsquellen für Bastelbegeisterte.<br>
+								SuMaSo steht für <strong>Su</strong>stainable <strong>Ma</strong>ker <strong>So</strong>urces und somit (frei übersetzt) für nachhaltige Bezugsquellen für Bastelbegeisterte.<br>
 							</p>
+
 							<h3>Still confused ?!?</h3>
 							<p class="details">
-							Das Projekt wurde Anfang 2020 aufgesetzt und sollte erstmals alle kostenlosen Bezugsquellen z.B. für Bastelholz - aus der Region Karlsruhe - auf einer Karte sichtbar machen. Im Laufe der Realisierung wurden dann weitere interessante Dinge implementiert (Maker Werkstätten, Hacker Spaces ...) Viele dieser Dinge sind auch für andere Regionen ersichtlich - wenn auch nicht so gut und manuell geprüft, wie die Einträge rund um Karlsruhe.
+								Das Projekt wurde Anfang 2020 aufgesetzt und sollte erstmals alle kostenlosen Bezugsquellen z.B. für Bastelholz - aus der Region Karlsruhe - auf einer Karte sichtbar machen. Im Laufe der Realisierung wurden dann weitere interessante Dinge implementiert (Maker Werkstätten, Hacker Spaces ...) Viele dieser Dinge sind auch für andere Regionen ersichtlich - wenn auch nicht so gut und manuell geprüft, wie die Einträge rund um Karlsruhe.
 							</p>
 
 							<h3>Finden !</h3>
 							<p class="details">
-							Um Quellen zu finden bzw. die Orte der Quellen anzuzeigen - gibt es mehrere Möglichkeiten. Übersichtsseite (wie suchen) Detail-Infos auf der Karte anzegein lassen, Informationen filtern, Spezielle Termine farblich anzeigen.
+								Um Quellen zu finden bzw. die Orte der Quellen anzuzeigen - gibt es mehrere Möglichkeiten. Übersichtsseite (wie suchen) Detail-Infos auf der Karte anzegein lassen, Informationen filtern, Spezielle Termine farblich anzeigen.
 							</p>
 
 							<h3>Besonderheiten / Details für Karlsruhe:</h3>
 							<p class="details">
-							Durch den initialen Fokus auf Karlsruhe gibt es für die Stadt erweiterte Funktionen. Diese sind:
-							Icons:
+								Durch den initialen Fokus auf Karlsruhe gibt es für die Stadt erweiterte Funktionen. Diese sind:
 							</p>
 
 							<h3>Aber da fehlt ja...</h3>
 							<p class="details">
-							Dir fehlen Informationen auf der Karte? - Bitte nim Kontakt zu uns auf bzw. trage die fehlende Information direkt selbst ein.
-						</p>
+								Dir fehlen Informationen auf der Karte? - Bitte nim Kontakt zu uns auf bzw. trage die fehlende Information direkt selbst ein.
+							</p>
 							<h3>Mitmachen:</h3>
 							<p class="details">
-							Dies ist ein Open Source / Open Knowledge Projekt - im Geiste dieses Gedankens kannst du theoretisch einen kompletten Klon dieser Seite erstellen - oder... (und das wäre zielführender...) Du kannst in unserem Team die Weiterentwicklung der Funktionalitäten voran treiben und teil etwas größeren sein...
-						</p>
-							...startete als Übersichtsseite für (kostenlose) Dinge, die für Maker relevant sind. Im Laufe des Projektes wurden weitere Quellen erschlossen und Zusatzfunktionen realisiert... Sustainable Maker Sources!
-
-							<br>
-							<p class="details">
-
+								Dies ist ein Open Source / Open Knowledge Projekt - im Geiste dieses Gedankens kannst du theoretisch einen kompletten Klon dieser Seite erstellen - oder... (und das wäre zielführender...) Du kannst in unserem Team die Weiterentwicklung der Funktionalitäten voran treiben und teil etwas größeren sein...
 							</p>
-							<p>
-								A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.
-							</p>
-
 					</div>
 
 					<div class="sidebar-pane" id="karlsruhe">
-							<h1 class="sidebar-header">Karlsruhe:<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-							<h3>Karlsruhe:</h3>
-							<p class="details">
+						<h1 class="sidebar-header">
+								Karlsruhe:
+								<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+						</h1>
+						<h3>Karlsruhe:</h3>
+						<p class="details">
 							Die Karte wurde initial und mit Fokus auf die Stadt Karlsruhe entwickelt. Die hier aufgeführten Funktionen sind Karlsruhe spezifisch und führen nur in dieser Region zu Ergebnissen.<br>
-							<strong>Bitte beachten!</strong> Diese Karten sind eine Sammlung von externen Daten. Die Daten und Termine wurden maschinell gesammelt und ohne größere Prüfungen hier eingefügt. Bitte kontrolliere die Angaben auf der jeweilige Datenquelle manuell, bevor du zu einem Termin aufbrichst.
-							</p>
-							<h4>[KA] - HackerSpaces - nach Ort:</h4>
+						</p>
+						<strong>Bitte beachten!</strong> Diese Karten sind eine Sammlung von externen Daten. Die Daten und Termine wurden maschinell gesammelt und ohne größere Prüfungen hier eingefügt. Bitte kontrolliere die Angaben auf der jeweilige Datenquelle manuell, bevor du zu einem Termin aufbrichst.
+
+						<h4>[KA] - HackerSpaces - nach Ort:</h4>
 							<p class="details">
 								<img class='icondescription' src='img/hackerspace_37x37.png'>
-								Hackerspaces und offene Werkstatten in Karlsruhe:<br>
-								<input type="checkbox" name="checkbox" id="kahackerspaces">
-								Zeige die Orte. Die nächsten Termin einer Veranstaltung findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
+								Hackerspaces und offene Werkstätten in Karlsruhe:<br>
+								Anzeige der Orte erfolgt nun direkt über die Layer Selection und die dortige Checkbox (KA Prefix).Die Orte werden dann mit diesem Icon angezeigt. Die nächsten Termin einer Veranstaltung findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
 							</p>
-							<h4>[KA] - Flohmärkte - nach Ort:</h4>
+						<h4>[KA] - Flohmärkte - nach Ort:</h4>
 							<p class="details">
 								<img class='icondescription' src='img/flohmarkt_grau_37x37.png'>
 								Flohmärkte (Orte) in der Karlsruher Region:<br>
-								<input type="checkbox" name="checkbox" id="kaflohmarktorte">
+								Anzeige der Orte erfolgt nun direkt über die Layer Selection und die dortige Checkbox (KA Prefix). Die Orte werden dann mit diesem Icon angezeigt.
+								Es gibt auch eine Anzeige für Flohmärkte, die Datumsangaben beinhaltet.
+								Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
 								Zeige die Orte an denen Flohmärkte stattfinden. Den nächsten Termin einer Veranstaltung findest du dann in den Popup Details des jeweiligen Ortes. Bitte achte auf zusätzliche Informationen und Ergänzungen der angegebenen Quelle (Woher kommt der Termin - gibt es eine Aktualisierung?)
 							</p>
-							<h4>[KA] - Flohmärkte - nach Datum:</h4>
+
+						<h4>[KA] - Flohmärkte - nach Datum:</h4>
 							<p class="details">
 								<img class='icondescription' src='img/flohmarkt_37x37.png'>
-								<input type="checkbox" name="checkbox" id="kaflohmarkttermine">
+								<select name="dates" id="dateselectfloh">
+									<option value="wrongselection" selected>Bitte auswählen...</option>
+									<option value='01-07'>07.01.2020</option>
+									<option value='01-09'>09.01.2020</option>
+								</select>
+								<span id="fakeshowflohdates"></span>
 								Daten (Termine) an denen Flohmärkte stattfinden. Selektiere ein Datum zu dem ein Flohmarkttermin hinterlegt ist - dann wird dir der entsprechende Ort in der Karte angezeigt. Weitere Details findest du in den Popup Texten.
 							</p>
-							<h4>[KA] - Sperrmüll - nach Datum:</h4>
+
+						<h4>[KA] - Sperrmüll - nach Datum:</h4>
 							<p class="details">
 								Wähle ein Datum, um die Straßen mit Sperrmüllabholung anzuzeigen.<br>
 								Termine sind alle von 2020 / im Format dd.mm.jjjj<br>
-									<select name="dates" id="dateselect">
+									<select name="dates" id="dateselectsperr">
 										<option value="wrongselection" selected>Bitte auswählen...</option>
 										<option value='01-07'>07.01.2020</option>
 										<option value='01-09'>09.01.2020</option>
@@ -306,7 +324,7 @@
 										<option value='12-11'>11.12.2020</option>
 									</select>
 									<br>
-									<span id="fakeshowdates"></span>
+									<span id="fakeshowsperrdates"></span>
 
 									<h4>[KA] - Wertstoffhöfe - nach Ort:</h4>
 									<p class="details">
@@ -317,13 +335,14 @@
 									</p>
 					</div>
 
-
 					<div class="sidebar-pane" id="contributors">
 							<h1 class="sidebar-header">Contributors:<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 							<h3>Contributors:</h3>
 							<p class="details">
 							Folgende Personen haben an diesem Projekt mitgewirkt:<br>
-							DigMac, Codetoffel, GrandmastaP
+							<ul>
+								<li>DigMac</li><li>Codetoffel</li><li>GrandmastaP</li>
+							</ul>
 							</p>
 					</div>
 
@@ -336,38 +355,46 @@
 					</div>
 			</div>
 	</div>
-
+<!--                                                                            SIDEBAR DEF - STOP.......................................................... -->
 
 	<div id='map' class="sidebar-map"></div>
-
   <script src="js/leaflet-sidebar.js"></script>
+
 	<script>
-
-
-	//_____________________FORM_RELATED___________________________________________
+	//_____________________FORM_RELATED___________________________________________START - FORM SELECT StreetSperrmuell!
 	//Event listener - change of the select (dropdown)
 
-	let sel = document.getElementById('dateselect');
-	sel.addEventListener ("change", function () {
-   	let showselecteddatespan = document.getElementById('showselecteddate');
-		let fakeshowdates = document.getElementById('fakeshowdates');
-		//TODO - this is a dirty workaround - replace with street highlighting on the map!
-		fakeshowdates.innerHTML = "TODO: Straßen hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
-   	showselecteddatespan.innerHTML = " [Termine für 2020-"+this.value+"]";
+	let selsperr = document.getElementById('dateselectsperr');
+	selsperr.addEventListener ("change", function () {
+		let fakeshowsperrdates = document.getElementById('fakeshowsperrdates');
+		fakeshowsperrdates.innerHTML = "TODO: Straßen hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
+
+		let showselecteddatespansperr = document.getElementById('showselecteddate');
+		showselecteddatespansperr.innerHTML = " [Sperrmüll Straßen am 2020 ->"+this.value+"]";
 	});
 
-		var sidebar = L.control.sidebar('sidebar').addTo(map);
+	let selfloh = document.getElementById('dateselectfloh');
+	selfloh.addEventListener ("change", function () {
+		let fakeshowflohdates = document.getElementById('fakeshowflohdates');
+		fakeshowflohdates.innerHTML = "TODO: Flohmarkt Orte hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
 
-	//wertstoffhoflayergroup
-		var recyclingIcon = L.icon({
-			iconUrl: 'img/recycling_37x37.png',
-			iconSize: [37, 37],
-			iconAnchor: [18, 37],
-			popupAnchor: [0, -28]
-		});
+		let showselecteddatespanfloh = document.getElementById('showselecteddate');
+		showselecteddatespanfloh.innerHTML = " [Flohmarkt Orte am 2020 "+this.value+"]";
+	});
 
-		//Manually created - next step - check and mayce automate the points - Reformat the data?!
-		var wertstoffstationen = {
+
+	var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+	//Wertstoffhoflayergroup
+	var recyclingIcon = L.icon({
+		iconUrl: 'img/recycling_37x37.png',
+		iconSize: [37, 37],
+		iconAnchor: [18, 37],
+		popupAnchor: [0, -28]
+	});
+
+	//Manually created - next step - check and mayce automate the points - Reformat the data?!
+	var wertstoffstationen = {
 		    "type": "FeatureCollection",
 		    "features": [
 		        {
@@ -557,7 +584,6 @@
 			L.geoJSON(wertstoffstationen, {
 				filter: function (feature, layer) {
 					if (feature.properties) {
-						//If the property "underConstruction" exists and is true, return false (don't render features under construction)
 						return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
 					}
 					return false;
@@ -697,9 +723,13 @@
 	};
 
 	var overlayMaps = {
-    "Cities": cities,
+		"Wertstoffhöfe": cities,
+		"SecondHand": cities,
+		"MakerShops": cities,
+		"Hackerspaces": cities,
 		"KA - Hackerspaces": hackerspacelayergroup,
-		"KA - Wertstoffhöfe":wertstoffhoflayergroup
+		"KA - Wertstoffhöfe": wertstoffhoflayergroup,
+		"KA - Flohmärkte": cities
 	};
 
 	var baseMaps = {
@@ -709,7 +739,6 @@
 
 
 	L.control.layers(baseMaps, overlayMaps).addTo(map);
-
 	L.Control.Watermark = L.Control.extend({
 		onAdd: function(map) {
 			var img = L.DomUtil.create('img');
@@ -722,11 +751,9 @@
 			//L.DomEvent.off()
 		}
 	});
-
 	L.control.watermark = function(opts) {
 		return new L.Control.Watermark(opts);
 	}
-
 	L.control.watermark({ position: 'bottomright' }).addTo(map);
 
 

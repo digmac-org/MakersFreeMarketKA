@@ -1,0 +1,19 @@
+Von Philip...
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+(
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Vorholzstraße"]
+    ({{bbox}});
+  way
+    [name="Vorholzstraße"]
+    ({{bbox}}); 
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;

@@ -1,0 +1,9 @@
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Microsoft.WindowsAPICodePack.dll
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Microsoft.WindowsAPICodePack.xml
+0;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Newtonsoft.Json.dll
+0;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\Newtonsoft.Json.xml
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\WindowsFormsAppCallOverpassApi.exe
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\WindowsFormsAppCallOverpassApi.exe.config
+1;C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\WindowsFormsAppCallOverpassApi\bin\Debug\WindowsFormsAppCallOverpassApi.pdb

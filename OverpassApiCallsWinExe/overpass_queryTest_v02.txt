@@ -1,0 +1,278 @@
+1 - Bastle die Overpass Query im Vorschaufenster
+2 - Über Exportieren und Nach Overpass XML konvertieren bekommst du...
+3 - Dieses Fenster gezeigt... der Part nach data= kann per C&P dann im C# Programm eingefügt...
+4 - Hier fügst du die Overpass XML Query aus der URL ein...
+5 - Der Button ruft die Overpass API... Dabei wird die URI neben dem Button durch den XML Query String ergänzt...
+6 - Die Ergebnisse der API Abfrage erscheinen in diesem Bereich...
+
+Command Line !!!
+https://overpass-api.de/command_line.html
+
+z.B. auch extra Qeury Datei... und wie der HTML(post) String formatiert sein muss...
+
+
+-erl-Export als GeoJson? Eventuell -https://wiki.openstreetmap.org/wiki/Overpass_turbo/GeoJSON
+-erl-Query von Philip ausprobieren mit KA Boundary 
+-erl-und mehreren Straßen...
+
+FErTISCH!
+
+
+Boundary etc...!!!
+https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL
+
+Acuh krass
+https://wiki.openstreetmap.org/wiki/DE:Overpass_API/Beispielsammlung#Stra.C3.9Fenliste
+
+
+NOPE
+area[name="Karlsruhe"];
+
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+
+{{geocodeArea:Chemnitz}}->.searchArea;
+(
+
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Vorholzstraße"]
+    ({{bbox}});
+  way
+    [name="Vorholzstraße"]
+    ({{bbox}}); 
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Cäciliastraße"]
+    ({{bbox}});
+  way
+    [name="Cäciliastraße"]
+    ({{bbox}}); 
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Weinweg"]
+    ({{bbox}});
+  way
+    [name="Weinweg"]
+    ({{bbox}});   
+ );
+ 
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+
+
+
+GEHT!!!!!!!!!!!!!!!!!!!
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+    ["addr:street"="Vorholzstraße"](area.searchArea);
+  way
+    [name="Vorholzstraße"]
+    ["addr:street"="Vorholzstraße"](area.searchArea);
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+    ["addr:street"="Cäciliastraße"](area.searchArea);
+  way
+    [name="Vorholzstraße"]
+    ["addr:street"="Cäciliastraße"](area.searchArea);  
+);
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+
+
+Achtugn - das muss das OUT davor!!!!
+
+
+[out:json];%2F*%0AThis%20is%20an%20example%20Overpass%20query.%0ATry%20it%20out%20by%20pressing%20the%20Run%20button%20above!%0AYou%20can%20find%20more%20examples%20with%20the%20Load%20tool.%0A*%2F%0A%0Aarea(3600062518)->.searchArea%3B%0A(%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20>%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20<%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20>%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20<%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%20%20%0A)%3B%0A%2F*added%20by%20auto%20repair*%2F%0A(._%3B>%3B)%3B%0A%2F*end%20of%20auto%20repair*%2F%0Aout%3B&target=xml
+
+
+
+
+Hier noch CSS - Farben?!
+https://wiki.openstreetmap.org/wiki/Overpass_turbo/MapCSS
+
+GeoJson!!!
+https://github.com/tyrasd/osmtogeojson
+
+
+
+Versuche Dienstag:
+1) - Alte Abfrage geht nichtmehr,,, Also repair!!!
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] >= 1 && t["addr:housenumber"] < 20)
+    ["addr:street"="Vorholzstraße"](area.searchArea);
+  way
+    [name="Vorholzstraße"]
+    ["addr:street"="Vorholzstraße"](area.searchArea);
+);
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+2. ARGHHH - Es liegt an der Abfrage - habe die kaputt gemacht...
+Original Abfrage geht nämlich noch...
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+(
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Vorholzstraße"]
+    ({{bbox}});
+  way
+    [name="Vorholzstraße"]
+    ({{bbox}}); 
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+3. Ich ersetze die Bounding Box wieder mit dem Area...
+(Geht auch noch...)
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] > 1 && t["addr:housenumber"] < 20)
+       ["addr:street"="Vorholzstraße"]
+    (area.searchArea);
+  way
+    [name="Vorholzstraße"]
+    (area.searchArea);
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+4. Nur Straße geht auch...
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    [name="Vorholzstraße"]
+    (area.searchArea);
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+5. Keine Pankik!!! - Es geht noch!!!
+
+http://overpass-api.de/api/interpreter?data=[out:json];%2F*%0AThis%20is%20an%20example%20Overpass%20query.%0ATry%20it%20out%20by%20pressing%20the%20Run%20button%20above!%0AYou%20can%20find%20more%20examples%20with%20the%20Load%20tool.%0A*%2F%0A%0Aarea(3600062518)-%3E.searchArea%3B%0A(%0A%20%20way%0A%20%20%20%20%5B%22addr%3Ahousenumber%22%5D(if%3At%5B%22addr%3Ahousenumber%22%5D%20%3E%201%20%26%26%20t%5B%22addr%3Ahousenumber%22%5D%20%3C%2020)%0A%20%20%20%20%5B%22addr%3Astreet%22%3D%22Vorholzstra%C3%9Fe%22%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D%22Vorholzstra%C3%9Fe%22%5D%0A%20%20%20%20%5B%22addr%3Astreet%22%3D%22Vorholzstra%C3%9Fe%22%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5B%22addr%3Ahousenumber%22%5D(if%3At%5B%22addr%3Ahousenumber%22%5D%20%3E%201%20%26%26%20t%5B%22addr%3Ahousenumber%22%5D%20%3C%2020)%0A%20%20%20%20%5B%22addr%3Astreet%22%3D%22C%C3%A4ciliastra%C3%9Fe%22%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D%22Vorholzstra%C3%9Fe%22%5D%0A%20%20%20%20%5B%22addr%3Astreet%22%3D%22C%C3%A4ciliastra%C3%9Fe%22%5D(area.searchArea)%3B%20%20%0A)%3B%0A%2F*added%20by%20auto%20repair*%2F%0A(._%3B%3E%3B)%3B%0A%2F*end%20of%20auto%20repair*%2F%0Aout%3B&target=xml
+
+6... Overpass API != Overpass Turbo... Nichts mixen!!!
+
+
+Das hier geht in der API!!! - nimmt man [out:json]; weg - gehts auch in OP Turbo!
+
+
+EINE STRASSE!!!
+[out:json];area(3600062518)->.searchArea;
+(
+  way
+    ["name"="Vorholzstraße"]
+    (area.searchArea);
+);
+(
+  ._;
+  >;
+);
+out;
+
+target ist die OP Turbo Einstellung!!! nicht die OP API!
+
+ZWEI STRASSEN!!!
+area(3600062518)->.searchArea;
+(
+  way
+    ["name"="Vorholzstraße"]
+    (area.searchArea);
+  way
+    ["name"="Cäciliastraße"]
+    (area.searchArea);
+);
+(
+  ._;
+  >;
+);
+out;
+
+
+Same Same mit SearchArea = Stadt im Klartext!!!!
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    ["name"="Vorholzstraße"]
+    (area.searchArea);
+  way
+    ["name"="Cäciliastraße"]
+    (area.searchArea);
+);
+(
+  ._;
+  >;
+);
+out;
+
+
+TEST - Strassen + Häuser 1..N
+
+
+
+
+{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+  way
+    ["name"="Vorholzstraße"]
+    (area.searchArea);
+  way
+    ["name"="Cäciliastraße"]
+    (area.searchArea);
+  way
+    ["addr:housenumber"](if:t["addr:housenumber"] >= 1 && t["addr:housenumber"] < 20)
+    ["addr:street"="Vorholzstraße"](area.searchArea);
+);
+(
+  ._;
+  >;
+);
+out;
