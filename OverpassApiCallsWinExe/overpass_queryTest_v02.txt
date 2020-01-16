@@ -276,3 +276,90 @@ TEST - Strassen + Häuser 1..N
   >;
 );
 out;
+
+
+( area[name="United Kingdom"]; )->.a;  /* or more selectively: */
+( area["ISO3166-1"="GB"][admin_level=2]; )->.a;
+
+Eventuell Karlsruhe so darstellen? (Bounding Box - mit Koordinaten?)
+node(50.746,7.154,50.748,7.157);
+out body;
+~
+
+
+NEXT STEPS...
+Wege einzeichnen - testen... 
+Polygone einzeichnen - testen
+
+
+GEHT
+["name" = "Insterburger Straße"]
+geht nicht
+["name" = "Insterburger Strasse"]
+
+geht!!
+  way
+	["name" ~ "Insterburger"]
+
+geht nicht...
+	["name" = "Insterburger"]	
+	
+	
+geht 
+["name" = "Küstriner Straße"]
+
+geht nicht... (natürlich auch nicht mit =
+["name" ~ "Insterburger Strasse"]
+["name" ~ "Kuestriner Straße"]
+
+geht 
+	["name" ~ "^Küstriner"]
+	["name" ~ "[iI]nsterburger Straße"]
+	
+	
+	Wildcard character ist .
+	Mit pipe kann man sachen nacheinander abfragen | ["name"~"holtorf|Gielgen"]
+	
+	
+	----->>>>>>>>>>>> 2.18!!!!
+	
+1... Replace strasse -> Straßen
+		Uppercase first Letter!
+		Uppercase first Letters in case of Blanks [iI] ???
+2... Dock - Tabsheet - AMX	
+3... ButtonTexts!!!
+
+strasse? im Text - was macht das?
+-erl-Ende von der Strasse ist Blank - das kommt doch vor!ca 136 - ändern!!!
+bäumel wird nicht als ae gefunden!
+ Felix-mottl-Straße
+ "H.ndelstraße"]
+ 
+ ae muss so ersetzt werden!!!
+ ["name" ~ "[aA]n [dD]er [sS]tadtma..r|[aA]n [dD]er [sS]tadtma.r"]
+ 
+ Str 1..2 geht sooo!
+ way 
+["addr:housenumber"](if:t["addr:housenumber"] >= 98 && t["addr:housenumber"] <= 118 )["addr:street" ~ "Pfinzstraße"]
+(area.searchArea);
+way 
+["addr: housenumber"](if:t["addr: housenumber"] >= "98" && t["addr: housenumber"] <= "118z" )["addr: street" ~ "Pfinzstraße"]
+(area.searchArea);
+
+nicht so...
+
+ 
+4... Fake Button?! - geojson ist leer?!
+
+
+{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Please see the Popup",
+									"underConstruction": true
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.405263,49.013669]
+							}
+}

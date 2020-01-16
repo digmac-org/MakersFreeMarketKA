@@ -1,0 +1,60 @@
+var streetparts = ["waidweg 1",
+"waidweg 1a-ende",
+"waidweg 0-14z",
+"waidweg 16-ende",
+"querstrasse",
+"saumweg",
+"vorderstrasse 1-ende",
+"schattenstrasse",
+"hahnenstrasse",
+"malvenstrasse",
+"vorderstrasse 0-58",
+"babbergerstrasse",
+"oelgartenweg",
+"vorderstrasse 58a-58z",
+"federbachstrasse",
+"hammweg",
+"im jagdgrund 1-23z",
+"vorderstrasse 60-ende",
+"im jagdgrund 25-69z",
+"im jagdgrund 71-ende",
+"im jagdgrund 0-ende",
+"pfarrstrasse",
+"neugaertenweg",
+"laubstrasse",
+"schlaucherplatz",
+"martha-kropp-strasse",
+"leo-faller-strasse",
+"otto-laible-strasse",
+"august-kutterer-strasse",
+"lilienstrasse",
+"goldgrundstrasse",
+"industriestrasse",
+"inselstrasse",
+"fritschlachweg 1-3z",
+"fritschlachweg 5-5z",
+"fritschlachweg 7-ende",
+"fritschlachweg 0-6z",
+"fritschlachweg 8-8z",
+"fritschlachweg 10-ende",
+"frohngaertenweg",
+"hermann-schneider-allee",
+"bienenstrasse",
+"willi-egler-strasse",
+"hohleichweg",
+"burgaustrasse",
+"kleine federbachstrasse"]; 
+
+ var streetpartsgeojson = 
+{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Please see the Popup",
+									"underConstruction": true
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.405263,49.013669]
+							}
+}
+			

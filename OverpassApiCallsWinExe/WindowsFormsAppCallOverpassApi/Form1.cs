@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Web;
 
 namespace WindowsFormsAppCallOverpassApi
 {
@@ -382,6 +383,8 @@ namespace WindowsFormsAppCallOverpassApi
 			}
 		}
 
+	
+
 		private string ConvertAdrRawToUsable(string line)
 		{
 
@@ -510,7 +513,7 @@ namespace WindowsFormsAppCallOverpassApi
 						System.IO.StreamReader file = new System.IO.StreamReader(ofd.FileName);
 						while ((line = file.ReadLine()) != null)
 						{
-							System.Console.WriteLine(line);
+							//System.Console.WriteLine(line);
 							counter++;
 
 							if (line.Substring(0, 2) == "0;")
@@ -618,5 +621,261 @@ namespace WindowsFormsAppCallOverpassApi
 				previewSelectedFileToolStripMenuItem_Click(checkedListBox1, null);
 			}
 		}
+
+		private void checkedListBox2_MouseClick(object sender, MouseEventArgs e)
+		{
+			//Hier liste laden!!!
+			if (checkBoxSaved.Checked)
+			{
+				previewSelectedFileToolStripMenuItem_Click2(checkedListBox2, null);
+			}
+		}
+		private void previewSelectedFileToolStripMenuItem_Click2(object sender, EventArgs e)
+		{
+
+			if (lastObjContextMenu != null)
+			{
+				if (lastObjContextMenu is CheckedListBox)
+				{
+					if ((lastObjContextMenu as CheckedListBox).SelectedIndex >= 0)
+					{
+						string selectedFile = ((lastObjContextMenu as CheckedListBox).Items[(lastObjContextMenu as CheckedListBox).SelectedIndex] as MyFileStruct).fullFileName;
+						textBox10.Text = ((lastObjContextMenu as CheckedListBox).Items[(lastObjContextMenu as CheckedListBox).SelectedIndex] as MyFileStruct).ToString()+".js";
+						string saveToFile = textBox9.Text + textBox10.Text; //---> See bottom!
+
+						if (File.Exists(selectedFile))
+						{
+							MyDateContainer newContainer = new MyDateContainer(selectedFile);
+							textBox7.Clear();
+							textBox8.Clear();
+							int counter = 0;
+							string line;
+							System.IO.StreamReader file = new System.IO.StreamReader(selectedFile);
+							textBox11.Clear();
+							/*
+							textBox11.Text = @"{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+";
+*/
+							textBox13.Clear();
+							textBox13.Text = "var streetparts = [";
+							string laststr = "";
+							while ((line = file.ReadLine()) != null)
+							{
+								if (laststr != "")
+								{
+									textBox13.Text += ","+Environment.NewLine;
+								}
+								System.Console.WriteLine(line);
+								counter++;
+								textBox7.Text += line + Environment.NewLine;  //Just write the Line!
+								//textBox11.Text += 
+									newContainer.AddNewStreet(line).overpassQuery.ToString();
+								textBox13.Text += '"' + line.Substring(0, line.Length - 2) + '"';
+								laststr = ",";
+								//textBox8.Text += ConvertAdrRawToUsable(line);
+							}
+							textBox13.Text+= "]; "+ Environment.NewLine + Environment.NewLine + " var streetpartsgeojson = ";
+							/*textBox11.Text+= @");
+(
+  ._;
+  >;
+);
+out; ";*/
+							textBox11.Text = newContainer.GetOverPassTurboQuery(true);
+
+							if (File.Exists(saveToFile))
+							{
+								tabControl4.SelectTab(2);
+							}
+							else
+							{
+								tabControl4.SelectTab(0);
+							}
+
+						}
+						else
+						{
+							MessageBox.Show("The file selected was not found!\n (" + selectedFile + ")");
+						}
+					}
+					else
+					{
+						(lastObjContextMenu as CheckedListBox).SelectedIndex = 0;
+						MessageBox.Show("Please select (highlight) a clb itemline before you call this function!\nFor reference - the first item is now selected!");
+					}
+				}
+			}
+		}
+
+		private void button8_Click(object sender, EventArgs e)
+		{
+			System.Windows.Forms.Clipboard.SetText(textBox11.Text);
+			string urad = HttpUtility.UrlEncode(textBox11.Text);
+			if (urad.Length < 500){ 
+				System.Diagnostics.Process.Start("https://overpass-turbo.eu/?Q=" + urad);
+			}
+			else
+			{
+				System.Diagnostics.Process.Start("https://overpass-turbo.eu/?Q=WeryToLong%20Use%20Crtl%20V");
+			}
+			tabControl4.SelectTab(1);
+
+		}
+
+		private void button7_Click(object sender, EventArgs e)
+		{
+			if (textBox12.Text.Length > 3)
+			{
+				textBox13.Text += textBox12.Text;
+				System.Windows.Forms.Clipboard.SetText("Cleaned after Paste of OverPassTurboText 2 Form");
+				tabControl4.SelectTab(2);
+			}
+			else
+			{
+				textBox12.Text =System.Windows.Forms.Clipboard.GetText();
+			}
+		}
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+			string saveToFile = textBox9.Text + textBox10.Text;
+			File.WriteAllText(saveToFile, textBox13.Text);
+			checkBoxSaved.Checked = false;
+			checkedListBox2.SetItemChecked(checkedListBox2.SelectedIndex,false);
+			if(checkedListBox2.SelectedIndex< checkedListBox2.Items.Count - 1) { 
+				checkedListBox2.SelectedIndex=checkedListBox2.SelectedIndex+1;
+			}
+			tabControl4.SelectTab(0);
+
+			
+			if (File.Exists(textBox14.Text))
+			{
+				string nfn = @"C:\Users\dirk\Downloads\export_" + textBox10.Text.Replace(".js", "") + ".geojson";
+				System.IO.File.Move(textBox14.Text, nfn);
+			}
+		}
+
+		private void button10_Click(object sender, EventArgs e)
+		{
+			if (File.Exists(textBox14.Text))
+			{
+				/*-----*/
+					string line;
+					System.IO.StreamReader file = new System.IO.StreamReader(textBox14.Text);
+				textBox12.Visible = false;
+				textBox13.Visible = false;
+				textBox12.Clear();
+					while ((line = file.ReadLine()) != null)
+					{
+						//System.Console.WriteLine(line);
+						textBox12.Text += line;
+					}
+				textBox13.Text += textBox12.Text;
+				textBox12.Visible = true;
+				textBox13.Visible = true;
+				//System.Windows.Forms.Clipboard.SetText("Cleaned after Paste of OverPassTurboText 2 Form");
+				tabControl4.SelectTab(2);
+				file.Close();
+				/*-----*/
+			}
+		}
+
+		private void button11_Click(object sender, EventArgs e)
+		{
+			if (checkedListBox2.Items.Count < 2)
+			{
+				string loadThis = @"C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\DatumsFiles2020_txt4clb.txt";
+				string line;
+				System.IO.StreamReader file = new System.IO.StreamReader(loadThis);
+				while ((line = file.ReadLine()) != null)
+				{
+					//System.Console.WriteLine(line);
+
+					if (line.Substring(0, 2) == "0;")
+					{
+						checkedListBox2.Items.Add(new MyFileStruct(line.Substring(2, line.Length - 2)), false);
+					}
+					else
+					{
+						if (line.Substring(0, 2) == "1;")
+						{
+							checkedListBox2.Items.Add(new MyFileStruct(line.Substring(2, line.Length - 2)), true);
+						}
+						else
+						{
+							checkedListBox2.Items.Add(new MyFileStruct(line), false);
+						}
+					}
+				}
+				file.Close();
+			}
+			else
+			{
+				for (int i = 0; i < checkedListBox2.Items.Count; i++)
+				{
+					if (File.Exists(textBox9.Text + "" + (checkedListBox2.Items[i] as MyFileStruct).ToString() + ".js"))
+					{
+						checkedListBox2.SetItemChecked(i, false);
+					}
+					else
+					{
+						checkedListBox2.SetItemChecked(i, true);
+					}
+				}
+				/*
+				foreach (var item in checkedListBox2.Items)
+				{
+					if (File.Exists(textBox9.Text+""+(item as MyFileStruct).ToString()+".js")) {
+						(item as CheckListBoxItem).GetItemChecked = false;
+						//((lastObjContextMenu as CheckedListBox).Items[(lastObjContextMenu as CheckedListBox).SelectedIndex] as MyFileStruct).ToString() + ".js";
+					}
+				}
+				*/
+			}
+		}
+
+		private void button12_Click(object sender, EventArgs e)
+		{
+			string dummyStr = @"
+{
+							#type#: #Feature#,
+							#properties#: {
+									#popupContent#: #Please see the Popup#,
+									#underConstruction#: true
+							},
+							#geometry#: {
+									#type#: #Point#,
+									#coordinates#: [8.405263,49.013669]
+							}
+}
+			";
+			dummyStr = dummyStr.Replace("#", "\"");
+
+			for (int i = 0; i < checkedListBox2.Items.Count; i++)
+			{
+				if (checkedListBox2.GetItemChecked(i))
+				{
+					checkedListBox2.SelectedIndex = i;
+					previewSelectedFileToolStripMenuItem_Click2(checkedListBox2, null);
+					textBox12.Text = dummyStr;
+					button7_Click(null, null);
+					button9_Click(null, null);
+				}
+			}
+				/*
+				string dummddd = @""+
+				+@"{" +
+					+@"\"type\": \"Feature\","
+								+ @"\"properties\": {"
+						+ @"\"popupContent\": \"Please see the Popup\","
+										+ @"\"underConstruction\": true"
+								+ @"},"
+								+@"\"geometry\": {"
+						+ @"\"type\": \"Point\","
+										+ @"\"coordinates\": [8.405263,49.013669]"
+		+ @"}"
+	+@"}";*/
+			}
 	}
 }

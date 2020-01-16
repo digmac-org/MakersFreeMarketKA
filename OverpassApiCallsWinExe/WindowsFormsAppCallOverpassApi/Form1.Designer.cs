@@ -64,21 +64,45 @@
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.markAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.all1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.removeXMarkedtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.keepXMarkedtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.loadFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.button5 = new System.Windows.Forms.Button();
-			this.tabPage8 = new System.Windows.Forms.TabPage();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.button3 = new System.Windows.Forms.Button();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.keepXMarkedtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeXMarkedtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
 			this.previewSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.button5 = new System.Windows.Forms.Button();
 			this.splitContainer6 = new System.Windows.Forms.SplitContainer();
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.tabPage8 = new System.Windows.Forms.TabPage();
+			this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+			this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+			this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+			this.checkBoxSaved = new System.Windows.Forms.CheckBox();
+			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.textBox9 = new System.Windows.Forms.TextBox();
+			this.tabControl4 = new System.Windows.Forms.TabControl();
+			this.tabPage9 = new System.Windows.Forms.TabPage();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.button8 = new System.Windows.Forms.Button();
+			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.tabPage10 = new System.Windows.Forms.TabPage();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.button7 = new System.Windows.Forms.Button();
+			this.textBox12 = new System.Windows.Forms.TextBox();
+			this.tabPage11 = new System.Windows.Forms.TabPage();
+			this.textBox13 = new System.Windows.Forms.TextBox();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.button9 = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.button3 = new System.Windows.Forms.Button();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.button10 = new System.Windows.Forms.Button();
+			this.button11 = new System.Windows.Forms.Button();
+			this.button12 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage5.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -111,11 +135,27 @@
 			this.splitContainer5.Panel2.SuspendLayout();
 			this.splitContainer5.SuspendLayout();
 			this.contextMenuStripCheckBoxFileSelect.SuspendLayout();
-			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
 			this.splitContainer6.Panel1.SuspendLayout();
 			this.splitContainer6.Panel2.SuspendLayout();
 			this.splitContainer6.SuspendLayout();
+			this.tabPage8.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+			this.splitContainer7.Panel1.SuspendLayout();
+			this.splitContainer7.Panel2.SuspendLayout();
+			this.splitContainer7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+			this.splitContainer8.Panel1.SuspendLayout();
+			this.splitContainer8.Panel2.SuspendLayout();
+			this.splitContainer8.SuspendLayout();
+			this.tabControl4.SuspendLayout();
+			this.tabPage9.SuspendLayout();
+			this.panel3.SuspendLayout();
+			this.tabPage10.SuspendLayout();
+			this.panel4.SuspendLayout();
+			this.tabPage11.SuspendLayout();
+			this.panel5.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -510,6 +550,20 @@
 			this.all1ToolStripMenuItem.Text = "All *-1";
 			this.all1ToolStripMenuItem.Click += new System.EventHandler(this.all1ToolStripMenuItem_Click);
 			// 
+			// removeXMarkedtoolStripMenuItem
+			// 
+			this.removeXMarkedtoolStripMenuItem.Name = "removeXMarkedtoolStripMenuItem";
+			this.removeXMarkedtoolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+			this.removeXMarkedtoolStripMenuItem.Text = "Remove X-marked items";
+			this.removeXMarkedtoolStripMenuItem.Click += new System.EventHandler(this.removeXMarkedtoolStripMenuItem_Click);
+			// 
+			// keepXMarkedtoolStripMenuItem
+			// 
+			this.keepXMarkedtoolStripMenuItem.Name = "keepXMarkedtoolStripMenuItem";
+			this.keepXMarkedtoolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+			this.keepXMarkedtoolStripMenuItem.Text = "Keep X-marked items";
+			this.keepXMarkedtoolStripMenuItem.Click += new System.EventHandler(this.keepXMarkedtoolStripMenuItem_Click);
+			// 
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
@@ -529,64 +583,6 @@
 			this.saveToFileToolStripMenuItem.Text = "Save to File";
 			this.saveToFileToolStripMenuItem.Click += new System.EventHandler(this.saveToFileToolStripMenuItem_Click);
 			// 
-			// button5
-			// 
-			this.button5.Location = new System.Drawing.Point(13, 13);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(336, 23);
-			this.button5.TabIndex = 0;
-			this.button5.Text = "button5";
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.button5_Click);
-			// 
-			// tabPage8
-			// 
-			this.tabPage8.Location = new System.Drawing.Point(4, 22);
-			this.tabPage8.Name = "tabPage8";
-			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage8.Size = new System.Drawing.Size(1094, 535);
-			this.tabPage8.TabIndex = 1;
-			this.tabPage8.Text = "tabPage8";
-			this.tabPage8.UseVisualStyleBackColor = true;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.button3);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1130, 38);
-			this.panel1.TabIndex = 1;
-			// 
-			// button3
-			// 
-			this.button3.Location = new System.Drawing.Point(4, 9);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(94, 23);
-			this.button3.TabIndex = 0;
-			this.button3.Text = "overpass turbo";
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.button3_Click);
-			// 
-			// openFileDialog1
-			// 
-			this.openFileDialog1.FileName = "openFileDialog1";
-			this.openFileDialog1.RestoreDirectory = true;
-			// 
-			// keepXMarkedtoolStripMenuItem
-			// 
-			this.keepXMarkedtoolStripMenuItem.Name = "keepXMarkedtoolStripMenuItem";
-			this.keepXMarkedtoolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-			this.keepXMarkedtoolStripMenuItem.Text = "Keep X-marked items";
-			this.keepXMarkedtoolStripMenuItem.Click += new System.EventHandler(this.keepXMarkedtoolStripMenuItem_Click);
-			// 
-			// removeXMarkedtoolStripMenuItem
-			// 
-			this.removeXMarkedtoolStripMenuItem.Name = "removeXMarkedtoolStripMenuItem";
-			this.removeXMarkedtoolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-			this.removeXMarkedtoolStripMenuItem.Text = "Remove X-marked items";
-			this.removeXMarkedtoolStripMenuItem.Click += new System.EventHandler(this.removeXMarkedtoolStripMenuItem_Click);
-			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
@@ -598,6 +594,16 @@
 			this.previewSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
 			this.previewSelectedFileToolStripMenuItem.Text = "Preview Selected File";
 			this.previewSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.previewSelectedFileToolStripMenuItem_Click);
+			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(13, 13);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(336, 23);
+			this.button5.TabIndex = 0;
+			this.button5.Text = "button5";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button5_Click);
 			// 
 			// splitContainer6
 			// 
@@ -638,6 +644,303 @@
 			this.textBox8.Size = new System.Drawing.Size(367, 529);
 			this.textBox8.TabIndex = 5;
 			this.textBox8.WordWrap = false;
+			// 
+			// tabPage8
+			// 
+			this.tabPage8.Controls.Add(this.splitContainer7);
+			this.tabPage8.Location = new System.Drawing.Point(4, 22);
+			this.tabPage8.Name = "tabPage8";
+			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage8.Size = new System.Drawing.Size(1094, 535);
+			this.tabPage8.TabIndex = 1;
+			this.tabPage8.Text = "KASperr2OPT";
+			this.tabPage8.UseVisualStyleBackColor = true;
+			// 
+			// splitContainer7
+			// 
+			this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer7.Location = new System.Drawing.Point(3, 3);
+			this.splitContainer7.Name = "splitContainer7";
+			// 
+			// splitContainer7.Panel1
+			// 
+			this.splitContainer7.Panel1.Controls.Add(this.checkedListBox2);
+			// 
+			// splitContainer7.Panel2
+			// 
+			this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
+			this.splitContainer7.Size = new System.Drawing.Size(1088, 529);
+			this.splitContainer7.SplitterDistance = 138;
+			this.splitContainer7.TabIndex = 0;
+			// 
+			// checkedListBox2
+			// 
+			this.checkedListBox2.ContextMenuStrip = this.contextMenuStripCheckBoxFileSelect;
+			this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.checkedListBox2.FormattingEnabled = true;
+			this.checkedListBox2.Location = new System.Drawing.Point(0, 0);
+			this.checkedListBox2.Name = "checkedListBox2";
+			this.checkedListBox2.Size = new System.Drawing.Size(138, 529);
+			this.checkedListBox2.TabIndex = 0;
+			this.checkedListBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkedListBox2_MouseClick);
+			// 
+			// splitContainer8
+			// 
+			this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer8.Name = "splitContainer8";
+			this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// splitContainer8.Panel1
+			// 
+			this.splitContainer8.Panel1.Controls.Add(this.button12);
+			this.splitContainer8.Panel1.Controls.Add(this.button11);
+			this.splitContainer8.Panel1.Controls.Add(this.checkBoxSaved);
+			this.splitContainer8.Panel1.Controls.Add(this.textBox10);
+			this.splitContainer8.Panel1.Controls.Add(this.textBox9);
+			// 
+			// splitContainer8.Panel2
+			// 
+			this.splitContainer8.Panel2.Controls.Add(this.tabControl4);
+			this.splitContainer8.Size = new System.Drawing.Size(946, 529);
+			this.splitContainer8.SplitterDistance = 66;
+			this.splitContainer8.TabIndex = 0;
+			// 
+			// checkBoxSaved
+			// 
+			this.checkBoxSaved.AutoSize = true;
+			this.checkBoxSaved.Checked = true;
+			this.checkBoxSaved.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxSaved.Location = new System.Drawing.Point(886, 6);
+			this.checkBoxSaved.Name = "checkBoxSaved";
+			this.checkBoxSaved.Size = new System.Drawing.Size(57, 17);
+			this.checkBoxSaved.TabIndex = 3;
+			this.checkBoxSaved.Text = "Saved";
+			this.checkBoxSaved.UseVisualStyleBackColor = true;
+			// 
+			// textBox10
+			// 
+			this.textBox10.Location = new System.Drawing.Point(3, 29);
+			this.textBox10.Name = "textBox10";
+			this.textBox10.Size = new System.Drawing.Size(76, 20);
+			this.textBox10.TabIndex = 1;
+			// 
+			// textBox9
+			// 
+			this.textBox9.Location = new System.Drawing.Point(3, 3);
+			this.textBox9.Name = "textBox9";
+			this.textBox9.Size = new System.Drawing.Size(281, 20);
+			this.textBox9.TabIndex = 0;
+			this.textBox9.Text = "C:\\2020Pro\\MakersFreeMarketKA\\ka\\2020\\sperrmuell\\";
+			// 
+			// tabControl4
+			// 
+			this.tabControl4.Controls.Add(this.tabPage9);
+			this.tabControl4.Controls.Add(this.tabPage10);
+			this.tabControl4.Controls.Add(this.tabPage11);
+			this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl4.Location = new System.Drawing.Point(0, 0);
+			this.tabControl4.Name = "tabControl4";
+			this.tabControl4.SelectedIndex = 0;
+			this.tabControl4.Size = new System.Drawing.Size(946, 459);
+			this.tabControl4.TabIndex = 0;
+			// 
+			// tabPage9
+			// 
+			this.tabPage9.Controls.Add(this.panel3);
+			this.tabPage9.Controls.Add(this.textBox11);
+			this.tabPage9.Location = new System.Drawing.Point(4, 22);
+			this.tabPage9.Name = "tabPage9";
+			this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage9.Size = new System.Drawing.Size(938, 433);
+			this.tabPage9.TabIndex = 0;
+			this.tabPage9.Text = "OverPass 1Copy";
+			this.tabPage9.UseVisualStyleBackColor = true;
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.label1);
+			this.panel3.Controls.Add(this.button8);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel3.Location = new System.Drawing.Point(3, 3);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(932, 40);
+			this.panel3.TabIndex = 1;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(198, 10);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(291, 13);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Paste - Ausführen - Export as  GeoJson - Copy -Paste here!!!";
+			// 
+			// button8
+			// 
+			this.button8.Location = new System.Drawing.Point(5, 8);
+			this.button8.Name = "button8";
+			this.button8.Size = new System.Drawing.Size(154, 23);
+			this.button8.TabIndex = 1;
+			this.button8.Text = "2 Overpass";
+			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
+			// textBox11
+			// 
+			this.textBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.textBox11.Location = new System.Drawing.Point(3, 49);
+			this.textBox11.Multiline = true;
+			this.textBox11.Name = "textBox11";
+			this.textBox11.Size = new System.Drawing.Size(932, 381);
+			this.textBox11.TabIndex = 0;
+			this.textBox11.WordWrap = false;
+			// 
+			// tabPage10
+			// 
+			this.tabPage10.Controls.Add(this.panel4);
+			this.tabPage10.Controls.Add(this.textBox12);
+			this.tabPage10.Location = new System.Drawing.Point(4, 22);
+			this.tabPage10.Name = "tabPage10";
+			this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage10.Size = new System.Drawing.Size(938, 433);
+			this.tabPage10.TabIndex = 1;
+			this.tabPage10.Text = "Overpass Paste";
+			this.tabPage10.UseVisualStyleBackColor = true;
+			// 
+			// panel4
+			// 
+			this.panel4.Controls.Add(this.button10);
+			this.panel4.Controls.Add(this.textBox14);
+			this.panel4.Controls.Add(this.button7);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel4.Location = new System.Drawing.Point(3, 392);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(932, 38);
+			this.panel4.TabIndex = 1;
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(3, 3);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(106, 23);
+			this.button7.TabIndex = 0;
+			this.button7.Text = "(NO) Use OP result";
+			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.button7_Click);
+			// 
+			// textBox12
+			// 
+			this.textBox12.Dock = System.Windows.Forms.DockStyle.Top;
+			this.textBox12.Location = new System.Drawing.Point(3, 3);
+			this.textBox12.Multiline = true;
+			this.textBox12.Name = "textBox12";
+			this.textBox12.Size = new System.Drawing.Size(932, 339);
+			this.textBox12.TabIndex = 0;
+			this.textBox12.WordWrap = false;
+			// 
+			// tabPage11
+			// 
+			this.tabPage11.Controls.Add(this.textBox13);
+			this.tabPage11.Controls.Add(this.panel5);
+			this.tabPage11.Location = new System.Drawing.Point(4, 22);
+			this.tabPage11.Name = "tabPage11";
+			this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage11.Size = new System.Drawing.Size(938, 433);
+			this.tabPage11.TabIndex = 2;
+			this.tabPage11.Text = "Review and Save";
+			this.tabPage11.UseVisualStyleBackColor = true;
+			// 
+			// textBox13
+			// 
+			this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox13.Location = new System.Drawing.Point(3, 3);
+			this.textBox13.Multiline = true;
+			this.textBox13.Name = "textBox13";
+			this.textBox13.Size = new System.Drawing.Size(846, 427);
+			this.textBox13.TabIndex = 1;
+			this.textBox13.WordWrap = false;
+			// 
+			// panel5
+			// 
+			this.panel5.Controls.Add(this.button9);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel5.Location = new System.Drawing.Point(849, 3);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(86, 427);
+			this.panel5.TabIndex = 0;
+			// 
+			// button9
+			// 
+			this.button9.Location = new System.Drawing.Point(9, 7);
+			this.button9.Name = "button9";
+			this.button9.Size = new System.Drawing.Size(70, 68);
+			this.button9.TabIndex = 0;
+			this.button9.Text = "save to file";
+			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.button9_Click);
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.button3);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1130, 38);
+			this.panel1.TabIndex = 1;
+			// 
+			// button3
+			// 
+			this.button3.Location = new System.Drawing.Point(4, 9);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(94, 23);
+			this.button3.TabIndex = 0;
+			this.button3.Text = "overpass turbo";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.RestoreDirectory = true;
+			// 
+			// textBox14
+			// 
+			this.textBox14.Location = new System.Drawing.Point(115, 5);
+			this.textBox14.Name = "textBox14";
+			this.textBox14.Size = new System.Drawing.Size(284, 20);
+			this.textBox14.TabIndex = 1;
+			this.textBox14.Text = "C:\\Users\\dirk\\Downloads\\export.geojson";
+			// 
+			// button10
+			// 
+			this.button10.Location = new System.Drawing.Point(405, 5);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(100, 23);
+			this.button10.TabIndex = 2;
+			this.button10.Text = "LFDL YES!!!";
+			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.button10_Click);
+			// 
+			// button11
+			// 
+			this.button11.Location = new System.Drawing.Point(685, 29);
+			this.button11.Name = "button11";
+			this.button11.Size = new System.Drawing.Size(254, 23);
+			this.button11.TabIndex = 4;
+			this.button11.Text = "button11";
+			this.button11.UseVisualStyleBackColor = true;
+			this.button11.Click += new System.EventHandler(this.button11_Click);
+			// 
+			// button12
+			// 
+			this.button12.Location = new System.Drawing.Point(864, 40);
+			this.button12.Name = "button12";
+			this.button12.Size = new System.Drawing.Size(75, 23);
+			this.button12.TabIndex = 5;
+			this.button12.Text = "button12";
+			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.button12_Click);
 			// 
 			// Form1
 			// 
@@ -688,13 +991,35 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
 			this.splitContainer5.ResumeLayout(false);
 			this.contextMenuStripCheckBoxFileSelect.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
 			this.splitContainer6.Panel1.ResumeLayout(false);
 			this.splitContainer6.Panel1.PerformLayout();
 			this.splitContainer6.Panel2.ResumeLayout(false);
 			this.splitContainer6.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
 			this.splitContainer6.ResumeLayout(false);
+			this.tabPage8.ResumeLayout(false);
+			this.splitContainer7.Panel1.ResumeLayout(false);
+			this.splitContainer7.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+			this.splitContainer7.ResumeLayout(false);
+			this.splitContainer8.Panel1.ResumeLayout(false);
+			this.splitContainer8.Panel1.PerformLayout();
+			this.splitContainer8.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+			this.splitContainer8.ResumeLayout(false);
+			this.tabControl4.ResumeLayout(false);
+			this.tabPage9.ResumeLayout(false);
+			this.tabPage9.PerformLayout();
+			this.panel3.ResumeLayout(false);
+			this.panel3.PerformLayout();
+			this.tabPage10.ResumeLayout(false);
+			this.tabPage10.PerformLayout();
+			this.panel4.ResumeLayout(false);
+			this.panel4.PerformLayout();
+			this.tabPage11.ResumeLayout(false);
+			this.tabPage11.PerformLayout();
+			this.panel5.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -749,6 +1074,30 @@
 		private System.Windows.Forms.SplitContainer splitContainer6;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.SplitContainer splitContainer7;
+		private System.Windows.Forms.CheckedListBox checkedListBox2;
+		private System.Windows.Forms.SplitContainer splitContainer8;
+		private System.Windows.Forms.CheckBox checkBoxSaved;
+		private System.Windows.Forms.TextBox textBox10;
+		private System.Windows.Forms.TextBox textBox9;
+		private System.Windows.Forms.TabControl tabControl4;
+		private System.Windows.Forms.TabPage tabPage9;
+		private System.Windows.Forms.TabPage tabPage10;
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Button button8;
+		private System.Windows.Forms.TextBox textBox11;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Button button7;
+		private System.Windows.Forms.TextBox textBox12;
+		private System.Windows.Forms.TabPage tabPage11;
+		private System.Windows.Forms.TextBox textBox13;
+		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.TextBox textBox14;
+		private System.Windows.Forms.Button button10;
+		private System.Windows.Forms.Button button11;
+		private System.Windows.Forms.Button button12;
 	}
 }
 

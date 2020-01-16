@@ -1,0 +1,62 @@
+var streetparts = ["palmbacher strasse",
+"obere gass",
+"thomashofstrasse",
+"gaensbergstrasse",
+"farnweg",
+"lamprechtshof",
+"neubergstrasse",
+"rebgaertenstrasse",
+"ortsstrasse",
+"efeustrasse",
+"zum bergle",
+"traminerstrasse",
+"pfefferaeckerstrasse",
+"zum sportzentrum",
+"trollingerstrasse",
+"gerberastrasse",
+"am hang",
+"am illwig",
+"am maueranger",
+"am schleifweg",
+"am thomashaeusle",
+"am wiesenrain",
+"eichwaldstrasse",
+"an der klam",
+"weiklesstrasse",
+"reutstrasse",
+"enzianstrasse",
+"werrenstrasse",
+"rieslingstrasse",
+"hermann-loens-weg",
+"wiesentalstrasse",
+"rittnertstrasse 251-ende",
+"silvanerstrasse",
+"rittnertstrasse 202-ende",
+"sonnenbergstrasse",
+"karlsbader strasse 1-ende",
+"karlsbader strasse 0-ende",
+"hinterm zaun",
+"windelbachstrasse",
+"gutedelstrasse",
+"rulaenderstrasse",
+"hoehenstrasse",
+"stupfericher weg",
+"burgunderstrasse",
+"stutenpferchstrasse",
+"kleinsteinbacher strasse 0-ende",
+"kleinsteinbacher strasse 1-ende",
+"koehlerweg"]; 
+
+ var streetpartsgeojson = 
+{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Please see the Popup",
+									"underConstruction": true
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.405263,49.013669]
+							}
+}
+			

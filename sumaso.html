@@ -371,6 +371,23 @@
 
 		let showselecteddatespansperr = document.getElementById('showselecteddate');
 		showselecteddatespansperr.innerHTML = " [Sperrmüll Straßen am 2020 ->"+this.value+"]";
+
+		//Test - open Alert from JSvar
+		sperrmuellIcon = L.icon({
+			iconUrl: 'img/sperrmuell-ema_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+		//folder = C:\2020Pro\MakersFreeMarketKA\ka\2020\flohmarkt\test.js
+		sperrmuellIcon = L.icon({
+			iconUrl: 'img/sperrmuell-ema_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+		loadScript("ka/2020/sperrmuell/"+this.value+".js", myPrettyCode);
+
 	});
 
 	let selfloh = document.getElementById('dateselectfloh');
@@ -380,7 +397,66 @@
 
 		let showselecteddatespanfloh = document.getElementById('showselecteddate');
 		showselecteddatespanfloh.innerHTML = " [Flohmarkt Orte am 2020 "+this.value+"]";
+
+		//Test - open Alert from JSvar
+		sperrmuellIcon = L.icon({
+			iconUrl: 'img/sperrmuell-ema_37x37.png',
+			iconSize: [37, 37],
+			iconAnchor: [18, 37],
+			popupAnchor: [0, -28]
+		});
+		//folder = C:\2020Pro\MakersFreeMarketKA\ka\2020\flohmarkt\test.js
+		loadScript("ka/2020/flohmarkt/test.js", myPrettyCode);
+		//alert("This is a END popup...");//Überholt! das im loadScript definierte!
 	});
+
+	function sperrmuellpopupbeta(){
+		var spt="";
+
+		for (i = 0; i < streetparts.length; i++) {
+  		spt += " - " + streetparts[i] + "\n";
+		}
+
+		alert("(BETA) Diese Funktion ist im !BETA Status! und noch nicht ausreichend getestet! [Strassen] : "+spt);
+	}
+
+	var myPrettyCode = function() {
+	   // Here, do whatever you want
+		 //var additionalText = "asdasdasdasd asdas aAdditional Text";
+		 //alert("Das nächste ist aus einer Var die ich im anderen File hatte");
+		 //alert("(BETA) diese Funktion ist noch nicht ausreichend getestet!\nErgebnisse bitte mit dieser Information im Hinterkopf verwenden\n"+popupinfo);
+		 sperrmuellpopupbeta();
+		 var flohtestlayergroup = L.layerGroup();
+		 L.geoJSON(streetpartsgeojson, {
+			 filter: function (feature, layer) {
+				 if (feature.properties) {
+					 return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
+				 }
+				 return false;
+			 },
+			 pointToLayer: function (feature, latlng) {
+				 return L.marker(latlng, {icon: sperrmuellIcon});
+			 },
+			 onEachFeature: onEachFeatureSperrmuell
+		 }).addTo(map);
+
+	};
+	function loadScript(url, callback)
+	{
+	    // Adding the script tag to the head as suggested before
+	    var head = document.head;
+	    var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = url;
+
+	    // Then bind the event to the callback function.
+	    // There are several events for cross browser compatibility.
+	    script.onreadystatechange = callback;
+	    script.onload = callback;
+
+	    // Fire the loading
+	    head.appendChild(script);
+	}
 
 
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
@@ -767,13 +843,45 @@
 			popupContent += "Info: "+feature.properties.additionalinfo+"<br>";
 		}
 		if (feature.properties && feature.properties.link) {  //TODO - long links - crash the popup!
-			popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link+"</a><br>";
+			if(feature.properties.link.length>40){
+				popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link.substr(0,40)+"...</a><br>";
+			}else{
+				popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link+"</a><br>";
+			}
 		}
 		if (feature.properties && feature.properties.openinghours) {
 			popupContent += feature.properties.openinghours;
 		}
 		if(popupContent == ""){
 			popupContent = "This is a feature without info - please add more details...<br>";
+		}
+
+		//Suround the final string with ... <p>
+		popupContent = "<p>"+popupContent+"</p>";
+
+		layer.bindPopup(popupContent);
+	}
+
+	function onEachFeatureSperrmuell(feature, layer) {
+		var popupContent = "";
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += "<strong>"+feature.properties.popupContent+"</strong><br>";
+		}
+		if (feature.properties && feature.properties.additionalinfo) {
+			popupContent += "Info: "+feature.properties.additionalinfo+"<br>";
+		}
+		if (feature.properties && feature.properties.link) {  //TODO - long links - crash the popup!
+			if(feature.properties.link.length>40){
+				popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link.substr(40)+"</a><br>";
+			}else{
+				popupContent += "Link: <a href='"+feature.properties.link+"' target='_new'>"+feature.properties.link+"</a><br>";
+			}
+		}
+		if (feature.properties && feature.properties.openinghours) {
+			popupContent += feature.properties.openinghours;
+		}
+		if(popupContent == ""){
+			popupContent = "This feature is still in BETA status - please verifiy the shown results on the source sites...<br>Click here for the <a href=\"javascript:sperrmuellpopupbeta()\">Info Popup...</a>.";
 		}
 
 		//Suround the final string with ... <p>

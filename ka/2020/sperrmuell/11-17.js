@@ -1,0 +1,60 @@
+var streetparts = ["diakonissenstrasse",
+"maerchenring",
+"daeumlingweg",
+"diakonissenstrasse",
+"ortenaustrasse",
+"gebrueder-grimm-strasse",
+"schenkendorfstrasse",
+"haenselweg",
+"lauschiger weg",
+"zwergenweg",
+"lebrechtstrasse",
+"hauffstrasse",
+"tulpenstrasse 1-43z",
+"tulpenstrasse 45-47z",
+"tulpenstrasse 49-ende",
+"tulpenstrasse 0-2z",
+"tulpenstrasse 4-34z",
+"tulpenstrasse 36",
+"tulpenstrasse 36a-ende",
+"andersenstrasse",
+"arndtstrasse 1-1z",
+"arndtstrasse 3-9z",
+"arndtstrasse 11-ende",
+"arndtstrasse 0-8z",
+"arndtstrasse 10-ende",
+"aschenbroedelweg",
+"elfenweg",
+"schneewittchenweg",
+"hegaustrasse",
+"goehrenstrasse",
+"prinzenweg",
+"graf-eberstein-strasse 1-53z",
+"fronstrasse",
+"graf-eberstein-strasse 55-ende",
+"graf-eberstein-strasse 0-8z",
+"graf-eberstein-strasse 10-ende",
+"wichtelmaennerweg",
+"gretelweg",
+"ludwig-tieck-strasse",
+"rotkaeppchenweg",
+"breisgaustrasse",
+"steinmannstrasse 1-1a",
+"steinmannstrasse 1b-ende",
+"steinmannstrasse 0-ende",
+"kleiststrasse",
+"kraichgaustrasse"]; 
+
+ var streetpartsgeojson = 
+{
+							"type": "Feature",
+							"properties": {
+									"popupContent": "Please see the Popup",
+									"underConstruction": true
+							},
+							"geometry": {
+									"type": "Point",
+									"coordinates": [8.405263,49.013669]
+							}
+}
+			

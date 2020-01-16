@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WindowsFormsAppCallOverpassApi
@@ -49,6 +50,7 @@ namespace WindowsFormsAppCallOverpassApi
 		public class MyStreetStruct
 		{
 			public string rawStreetString;
+			public string rawStreetStringCleaned;
 			public string streetName;
 			public string houseNo1;
 			public string houseNo2;
@@ -83,24 +85,64 @@ namespace WindowsFormsAppCallOverpassApi
 / *end of auto repair* /
 out;
 			 */
+			public string SonderzWorkaround(string str,string toReplace)
+			{
+				if (toReplace == "all")
+				{
+					return SonderzWorkaround(SonderzWorkaround(SonderzWorkaround(str,"ae"),"oe"),"ue");
+				}
+				else
+				{
+					string tmp1 = str;
+					string tmp2 = str;
+					if (str.Contains(toReplace))
+					{
+						tmp1 = str.Replace(toReplace, "..");
+						tmp2 = str.Replace(toReplace, ".");
+						return str + "|" + tmp1 + "|" + tmp2;
+					}
+					return str;
+				}
+			}
+			public string OPTQueryStreet(string street, bool replacePipedSpecChars=false)
+			{
+				string tmp="";
+				if (!replacePipedSpecChars) { 
+				tmp = "way " 
+					+ Environment.NewLine 
+					+"[\"name\" ~ \"" + street + "\"]" 
+					+ Environment.NewLine 
+					+"(area.searchArea);";
+				}
+				else
+				{
+					tmp = "way "
+						+ Environment.NewLine
+						+ "[\"name\" ~ \"" + SonderzWorkaround(street,"all") + "\"]"
+						+ Environment.NewLine
+						+ "(area.searchArea);";
+				}
+				return tmp;
+			}
 			public string QueryStreet()
 			{
-				return "way "+
-					"[name = " + streetName + "]" +
-						
-						"[addr: street = " + streetName + "](area.searchArea);";
+				return "way "+Environment.NewLine+
+					"[\"name\" ~ \"" + streetName + "\"]" + Environment.NewLine +
+					"(area.searchArea);";
 			}
 			public string QueryHouse1()
 			{
-				return "way " +
-						"[addr: housenumber](if:t[addr: housenumber] = " + houseNo1 + ")" +
-						"[addr: street = " + streetName + "](area.searchArea);";
+				return "way " + Environment.NewLine +
+						"[\"addr: housenumber\"](if:t[\"addr: housenumber\"] == \"" + houseNo1 + "\" )" + Environment.NewLine +
+						"[\"addr: street\" ~ \"" + streetName + "\"]" + Environment.NewLine +
+					"(area.searchArea);";
 			}
 			public string QueryHouse2()
 			{
-				return "way " +
-						"[addr: housenumber](if:t[addr: housenumber] = " + houseNo1 + "&& t[addr: housenumber] < "+houseNo2+")"+
-						"[addr: street = " + streetName + "](area.searchArea);";
+				return "way " + Environment.NewLine +
+						"[\"addr:housenumber\"](if:t[\"addr:housenumber\"] >= \"" + houseNo1 + "\" && t[\"addr:housenumber\"] <= \""+houseNo2+"\" )"+
+						"[\"addr:street\" ~ \"" + streetName + "\"]"+ Environment.NewLine +
+						"(area.searchArea);";
 			}
 			public string PrepareOverpassQuery()
 			{
@@ -126,6 +168,77 @@ out;
 				}
 				return overpassQuery;
 			}
+
+			public string TrimStringToNotHaveLastChars(string strToClean,char lastChar=' ')
+			{
+				if (strToClean[strToClean.Length-1] == lastChar) {
+					return TrimStringToNotHaveLastChars(strToClean.Substring(0, strToClean.Length - 1), lastChar);
+				}
+				else
+				{
+					return strToClean;
+				}
+			}
+			public string FormatWordStreets(string strToClean,char wordSep=' ')
+			{
+				string[] streetTemp = strToClean.Split(wordSep);
+				string newStreetName = "";
+				bool isFirst = true;
+				foreach (string s in streetTemp)
+				{
+					if (s.Length > 0)
+					{
+						if (isFirst)
+						{
+							isFirst = false;
+						}
+						else
+						{
+							newStreetName += wordSep;
+						}
+						newStreetName += "[" + (s.Substring(0, 1)).ToLower() + "" + (s.Substring(0, 1)).ToUpper() + "]" + s.Substring(1, s.Length - 1);
+					}
+				}
+				return newStreetName;
+			}
+			public string CheckExtractedStreet(string streetToFormat)
+			{
+				string newStreetName = TrimStringToNotHaveLastChars(streetToFormat.Replace(" strasse", "XXstreetXX"),' ');
+				if (newStreetName.Contains(" ")) {
+					newStreetName = FormatWordStreets(newStreetName,' ');
+				}
+				else
+				{
+					if (newStreetName.Contains("-"))
+					{
+						newStreetName = FormatWordStreets(newStreetName, '-');
+					}
+					else { 
+						newStreetName = newStreetName.Substring(0, 1).ToUpper() + newStreetName.Substring(1, newStreetName.Length - 1);
+					}
+				}
+				newStreetName = ReplaceOtherSpecialCharacters(newStreetName);
+				return newStreetName.Replace("XXstreetXX", " Straße");
+			}
+			public string ReplaceOtherSpecialCharacters(string newStreetName)
+			{
+				return newStreetName.Replace("trasse", "traße");
+				/*** Das muss in der Query gemacht werden - da dann aus... 
+				 ["name" ~ "[aA]n [dD]er [sS]tadtma.r"] 
+				 ["name" ~ "[aA]n [dD]er [sS]tadtma.r|[aA]n [dD]er [sS]tadtma..r"] gemacht werden muss (PIPE ||)
+
+					.Replace("ae", ".")
+					.Replace("oe", ".")
+					.Replace("ue", ".")
+					.Replace("Ae", ".")
+					.Replace("Oe", ".")
+					.Replace("Ue", ".");
+				/*
+					.Replace("oe", ".")
+					.Replace("oe", ".")
+					*/
+			}
+
 			public void ExtractStreetFromRaw()
 			{
 				//rawStreetString
@@ -136,7 +249,7 @@ out;
 				{
 					//Cleaned string to search address from
 					string line = rawStreetString.Substring(0, rawStreetString.Length - 2);
-
+					rawStreetStringCleaned = line;
 					if (
 						line.Any(x => System.Char.IsDigit(x))
 						)
@@ -145,11 +258,14 @@ out;
 						int lastInd = line.LastIndexOf(" ") + 1;
 						int endos = line.Length - lastInd;
 						string houseNoPart = line.Substring(lastInd, endos);
+
+						streetName = CheckExtractedStreet(line.Substring(0,lastInd));
+
 						if (houseNoPart.Contains("-"))
 						{
 							int lastInd2 = houseNoPart.LastIndexOf("-");
 							houseNo1 = houseNoPart.Substring(0, lastInd2);
-							houseNo2 = houseNoPart.Substring(lastInd2, houseNoPart.Length - lastInd2);
+							houseNo2 = houseNoPart.Substring(lastInd2+1, houseNoPart.Length - lastInd2 -1);
 							if (line.Contains("-ende"))
 							{
 								sstyle = STREETSTYLE.street1notillend;
@@ -161,7 +277,7 @@ out;
 						}
 						else
 						{ //Street with one HouseNumber houseNo1
-							streetName = line;
+							//streetName = line;
 							houseNo1 = houseNoPart;
 							houseNo2 = "";
 							sstyle = STREETSTYLE.street1no;
@@ -169,7 +285,7 @@ out;
 					}
 					else
 					{//No Digits - street only!
-						streetName = line;
+						streetName = CheckExtractedStreet(line); 
 						sstyle = STREETSTYLE.street;
 					}
 				}
@@ -181,6 +297,36 @@ out;
 				}
 				PrepareOverpassQuery();
 			}
+		}
+
+		internal string GetOverPassTurboQuery(bool streetOnly=true)
+		{
+			string resStr =  @"{{geocodeArea:Karlsruhe}}->.searchArea;
+(
+";
+			resStr+= Environment.NewLine;
+
+			List<string> allStreets = new List<string>();
+			foreach (MyStreetStruct itm in streetStruct)
+			{
+				if (!allStreets.Contains(itm.streetName))
+				{
+					allStreets.Add(itm.streetName);
+				}
+			}
+			foreach (string str in allStreets)
+			{
+				//textBox11.Text += 
+				//newContainer.AddNewStreet(line).overpassQuery.ToString() + "" + Environment.NewLine;
+				resStr += streetStruct[0].OPTQueryStreet(str, true);
+			}
+			resStr += @");
+(
+  ._;
+  >;
+);
+out; ";
+			return resStr;
 		}
 	}
 }
