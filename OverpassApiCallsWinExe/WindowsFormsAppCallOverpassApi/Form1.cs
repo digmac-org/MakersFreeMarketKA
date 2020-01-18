@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Web;
+using System.Media;
 
 namespace WindowsFormsAppCallOverpassApi
 {
@@ -712,15 +713,16 @@ out; ";*/
 		{
 			System.Windows.Forms.Clipboard.SetText(textBox11.Text);
 			string urad = HttpUtility.UrlEncode(textBox11.Text);
-			if (urad.Length < 500){ 
+			if (urad.Length < 200){ 
 				System.Diagnostics.Process.Start("https://overpass-turbo.eu/?Q=" + urad);
 			}
 			else
 			{
-				System.Diagnostics.Process.Start("https://overpass-turbo.eu/?Q=WeryToLong%20Use%20Crtl%20V");
+				System.Diagnostics.Process.Start("https://overpass-turbo.eu/?Q=Insert%20Code%20with%20Use%20Crtl%20V%20"+ urad.Substring(0,150));
 			}
 			tabControl4.SelectTab(1);
-
+			textBox15.Text = "Button2Overpass was clicked -> Next: Insert and run in OPT and then...After DL - Click Button to read dl file... ";
+			SystemSounds.Beep.Play();
 		}
 
 		private void button7_Click(object sender, EventArgs e)
@@ -751,40 +753,68 @@ out; ";*/
 			
 			if (File.Exists(textBox14.Text))
 			{
-				string nfn = @"C:\Users\dirk\Downloads\export_" + textBox10.Text.Replace(".js", "") + ".geojson";
-				System.IO.File.Move(textBox14.Text, nfn);
+				try
+				{
+					string nfn = @"C:\Users\dirk\Downloads\export_" + textBox10.Text.Replace(".js", "") + ".geojson";
+					System.IO.File.Move(textBox14.Text, nfn);
+				}
+				catch (Exception)
+				{
+					SystemSounds.Beep.Play();
+					SystemSounds.Beep.Play();
+					SystemSounds.Beep.Play();
+				}
+				
 			}
+
+			textBox11.Text = "SAVED - OLD: " + textBox11.Text;
+			textBox12.Text = "SAVED - OLD: " + textBox12.Text;
+			textBox13.Text = "SAVED - OLD: " + textBox13.Text;
+
+			textBox15.Text = "File was saved - Check Saved and load next File!!! ";
+			SystemSounds.Beep.Play();
 		}
 
 		private void button10_Click(object sender, EventArgs e)
 		{
+			SystemSounds.Beep.Play();
 			if (File.Exists(textBox14.Text))
 			{
 				/*-----*/
-					string line;
-					System.IO.StreamReader file = new System.IO.StreamReader(textBox14.Text);
+				//string line;
+				//	System.IO.StreamReader file = new System.IO.StreamReader(textBox14.Text);
 				textBox12.Visible = false;
 				textBox13.Visible = false;
 				textBox12.Clear();
+
+				/*
 					while ((line = file.ReadLine()) != null)
 					{
 						//System.Console.WriteLine(line);
 						textBox12.Text += line;
 					}
+					*/
+				textBox12.Text = File.ReadAllText(textBox14.Text);
+				
+
 				textBox13.Text += textBox12.Text;
 				textBox12.Visible = true;
 				textBox13.Visible = true;
 				//System.Windows.Forms.Clipboard.SetText("Cleaned after Paste of OverPassTurboText 2 Form");
 				tabControl4.SelectTab(2);
-				file.Close();
+				SystemSounds.Beep.Play();
+				textBox15.Text = "File was read and now the full Source should be saved!!! (Hit Save Button)";
+				//file.Close(); 
 				/*-----*/
 			}
 		}
 
 		private void button11_Click(object sender, EventArgs e)
 		{
+			SystemSounds.Beep.Play();
 			if (checkedListBox2.Items.Count < 2)
 			{
+				lastObjContextMenu = checkedListBox2; //Needed if no Popup was selected 
 				string loadThis = @"C:\2020Pro\MakersFreeMarketKA\OverpassApiCallsWinExe\DatumsFiles2020_txt4clb.txt";
 				string line;
 				System.IO.StreamReader file = new System.IO.StreamReader(loadThis);

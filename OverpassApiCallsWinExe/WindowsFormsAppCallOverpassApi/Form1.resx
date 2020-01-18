@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStripCheckBoxFileSelect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="textBox4.Text" xml:space="preserve">
-    <value>[out:json];%2F*%0AThis%20is%20an%20example%20Overpass%20query.%0ATry%20it%20out%20by%20pressing%20the%20Run%20button%20above!%0AYou%20can%20find%20more%20examples%20with%20the%20Load%20tool.%0A*%2F%0A%0Aarea(3600062518)-&gt;.searchArea%3B%0A(%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20&gt;%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20&lt;%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20&gt;%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20&lt;%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%20%20%0A)%3B%0A%2F*added%20by%20auto%20repair*%2F%0A(._%3B&gt;%3B)%3B%0A%2F*end%20of%20auto%20repair*%2F%0Aout%3B&amp;target=xml</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -138,6 +132,12 @@
         S1H8AYAg2IGsN2mFAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>[out:json];%2F*%0AThis%20is%20an%20example%20Overpass%20query.%0ATry%20it%20out%20by%20pressing%20the%20Run%20button%20above!%0AYou%20can%20find%20more%20examples%20with%20the%20Load%20tool.%0A*%2F%0A%0Aarea(3600062518)-&gt;.searchArea%3B%0A(%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20&gt;%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20&lt;%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Vorholzstraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5B"addr%3Ahousenumber"%5D(if%3At%5B"addr%3Ahousenumber"%5D%20&gt;%201%20%26%26%20t%5B"addr%3Ahousenumber"%5D%20&lt;%2020)%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%0A%20%20way%0A%20%20%20%20%5Bname%3D"Vorholzstraße"%5D%0A%20%20%20%20%5B"addr%3Astreet"%3D"Cäciliastraße"%5D(area.searchArea)%3B%20%20%0A)%3B%0A%2F*added%20by%20auto%20repair*%2F%0A(._%3B&gt;%3B)%3B%0A%2F*end%20of%20auto%20repair*%2F%0Aout%3B&amp;target=xml</value>
+  </data>
+  <metadata name="contextMenuStripCheckBoxFileSelect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>270, 17</value>
   </metadata>

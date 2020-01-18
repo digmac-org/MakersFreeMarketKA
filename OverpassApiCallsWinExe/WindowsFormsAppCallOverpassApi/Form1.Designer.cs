@@ -79,6 +79,8 @@
 			this.splitContainer7 = new System.Windows.Forms.SplitContainer();
 			this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
 			this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+			this.button12 = new System.Windows.Forms.Button();
+			this.button11 = new System.Windows.Forms.Button();
 			this.checkBoxSaved = new System.Windows.Forms.CheckBox();
 			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.textBox9 = new System.Windows.Forms.TextBox();
@@ -90,6 +92,8 @@
 			this.textBox11 = new System.Windows.Forms.TextBox();
 			this.tabPage10 = new System.Windows.Forms.TabPage();
 			this.panel4 = new System.Windows.Forms.Panel();
+			this.button10 = new System.Windows.Forms.Button();
+			this.textBox14 = new System.Windows.Forms.TextBox();
 			this.button7 = new System.Windows.Forms.Button();
 			this.textBox12 = new System.Windows.Forms.TextBox();
 			this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -99,10 +103,7 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button3 = new System.Windows.Forms.Button();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.textBox14 = new System.Windows.Forms.TextBox();
-			this.button10 = new System.Windows.Forms.Button();
-			this.button11 = new System.Windows.Forms.Button();
-			this.button12 = new System.Windows.Forms.Button();
+			this.textBox15 = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage5.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -706,6 +707,26 @@
 			this.splitContainer8.SplitterDistance = 66;
 			this.splitContainer8.TabIndex = 0;
 			// 
+			// button12
+			// 
+			this.button12.Location = new System.Drawing.Point(473, 26);
+			this.button12.Name = "button12";
+			this.button12.Size = new System.Drawing.Size(162, 23);
+			this.button12.TabIndex = 5;
+			this.button12.Text = "(AutoRunDummyNoOPT)";
+			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.button12_Click);
+			// 
+			// button11
+			// 
+			this.button11.Location = new System.Drawing.Point(171, 26);
+			this.button11.Name = "button11";
+			this.button11.Size = new System.Drawing.Size(296, 23);
+			this.button11.TabIndex = 4;
+			this.button11.Text = "Init+Check2020Sperrm";
+			this.button11.UseVisualStyleBackColor = true;
+			this.button11.Click += new System.EventHandler(this.button11_Click);
+			// 
 			// checkBoxSaved
 			// 
 			this.checkBoxSaved.AutoSize = true;
@@ -819,6 +840,24 @@
 			this.panel4.Size = new System.Drawing.Size(932, 38);
 			this.panel4.TabIndex = 1;
 			// 
+			// button10
+			// 
+			this.button10.Location = new System.Drawing.Point(405, 5);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(100, 23);
+			this.button10.TabIndex = 2;
+			this.button10.Text = "LFDL YES!!!";
+			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.button10_Click);
+			// 
+			// textBox14
+			// 
+			this.textBox14.Location = new System.Drawing.Point(115, 5);
+			this.textBox14.Name = "textBox14";
+			this.textBox14.Size = new System.Drawing.Size(284, 20);
+			this.textBox14.TabIndex = 1;
+			this.textBox14.Text = "C:\\Users\\dirk\\Downloads\\export.geojson";
+			// 
 			// button7
 			// 
 			this.button7.Location = new System.Drawing.Point(3, 3);
@@ -882,6 +921,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.textBox15);
 			this.panel1.Controls.Add(this.button3);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -904,43 +944,14 @@
 			this.openFileDialog1.FileName = "openFileDialog1";
 			this.openFileDialog1.RestoreDirectory = true;
 			// 
-			// textBox14
+			// textBox15
 			// 
-			this.textBox14.Location = new System.Drawing.Point(115, 5);
-			this.textBox14.Name = "textBox14";
-			this.textBox14.Size = new System.Drawing.Size(284, 20);
-			this.textBox14.TabIndex = 1;
-			this.textBox14.Text = "C:\\Users\\dirk\\Downloads\\export.geojson";
-			// 
-			// button10
-			// 
-			this.button10.Location = new System.Drawing.Point(405, 5);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(100, 23);
-			this.button10.TabIndex = 2;
-			this.button10.Text = "LFDL YES!!!";
-			this.button10.UseVisualStyleBackColor = true;
-			this.button10.Click += new System.EventHandler(this.button10_Click);
-			// 
-			// button11
-			// 
-			this.button11.Location = new System.Drawing.Point(685, 29);
-			this.button11.Name = "button11";
-			this.button11.Size = new System.Drawing.Size(254, 23);
-			this.button11.TabIndex = 4;
-			this.button11.Text = "button11";
-			this.button11.UseVisualStyleBackColor = true;
-			this.button11.Click += new System.EventHandler(this.button11_Click);
-			// 
-			// button12
-			// 
-			this.button12.Location = new System.Drawing.Point(864, 40);
-			this.button12.Name = "button12";
-			this.button12.Size = new System.Drawing.Size(75, 23);
-			this.button12.TabIndex = 5;
-			this.button12.Text = "button12";
-			this.button12.UseVisualStyleBackColor = true;
-			this.button12.Click += new System.EventHandler(this.button12_Click);
+			this.textBox15.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.textBox15.Location = new System.Drawing.Point(175, 11);
+			this.textBox15.Name = "textBox15";
+			this.textBox15.Size = new System.Drawing.Size(941, 20);
+			this.textBox15.TabIndex = 1;
+			this.textBox15.Text = "MultiCalTest1 + KASperr2OPT + Init Button";
 			// 
 			// Form1
 			// 
@@ -1020,6 +1031,7 @@
 			this.tabPage11.PerformLayout();
 			this.panel5.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -1098,6 +1110,7 @@
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.Button button11;
 		private System.Windows.Forms.Button button12;
+		private System.Windows.Forms.TextBox textBox15;
 	}
 }
 

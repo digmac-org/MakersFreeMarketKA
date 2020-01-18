@@ -367,7 +367,7 @@
 	let selsperr = document.getElementById('dateselectsperr');
 	selsperr.addEventListener ("change", function () {
 		let fakeshowsperrdates = document.getElementById('fakeshowsperrdates');
-		fakeshowsperrdates.innerHTML = "TODO: Straßen hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
+		fakeshowsperrdates.innerHTML = "TODO: Straßen hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br><a href=\"javascript:top.window.location.reload();\">Clear old Selection</a>";
 
 		let showselecteddatespansperr = document.getElementById('showselecteddate');
 		showselecteddatespansperr.innerHTML = " [Sperrmüll Straßen am 2020 ->"+this.value+"]";
@@ -393,7 +393,7 @@
 	let selfloh = document.getElementById('dateselectfloh');
 	selfloh.addEventListener ("change", function () {
 		let fakeshowflohdates = document.getElementById('fakeshowflohdates');
-		fakeshowflohdates.innerHTML = "TODO: Flohmarkt Orte hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br>";
+		fakeshowflohdates.innerHTML = "TODO: Flohmarkt Orte hervorheben statt txt. <a href='https://boegi.com/mymaps/fakedata/"+this.value+".txt'>TXT File Workaround for "+this.value+"</a>) dran: <br><a href=\"javascript:top.window.location.reload();\">Clear old Selection</a>";
 
 		let showselecteddatespanfloh = document.getElementById('showselecteddate');
 		showselecteddatespanfloh.innerHTML = " [Flohmarkt Orte am 2020 "+this.value+"]";
